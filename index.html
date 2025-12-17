@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Microbiome Lab | CBNU - Welcome</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 
+        *** FIX FOR GITHUB PAGES ABSOLUTE PATHS ***
+        Set the base URL for all relative URLs in the document. 
+        You MUST replace "mblcbnu" below with your actual GitHub repository name.
+        This fixes the issue where links like "research.html" become 
+        "/mblcbnu/research.html" automatically.
+    -->
+    <base href="/mblcbnu/"> 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         body {
@@ -48,7 +56,7 @@
             <div class="flex items-start flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-10">
                 
                 <div class="flex-shrink-0">
-                    <!-- Note: Image path corrected to be relative -->
+                    <!-- Image path corrected to be relative -->
                     <img src="./MBLLOGO4.png" alt="Microbiome Lab Logo" class="h-28 w-auto rounded-lg shadow-xl border-4 border-gray-300">
                 </div>
 
@@ -117,27 +125,23 @@
                 const data = await response.text();
                 const navContainer = document.getElementById('main-nav');
                 navContainer.innerHTML = data;
-
-                // After loading the content, set up the mobile menu toggle
-                const mobileMenuButton = navContainer.querySelector('#mobile-menu-button');
-                const mobileMenu = navContainer.querySelector('#mobile-menu');
                 
-                mobileMenuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                });
+                // Get the current page file name (e.g., 'index.html', 'research.html')
+                const pathParts = window.location.pathname.split('/').filter(p => p.length > 0);
+                const currentPage = pathParts.pop() || 'index.html'; // Gets the last segment (the file name)
 
                 // Set active link based on current page path
-                const currentPath = window.location.pathname.split('/').pop() || 'index.html';
                 const links = navContainer.querySelectorAll('.nav-link');
                 
                 links.forEach(link => {
+                    // Extract the file name from the link's href (e.g., '/index.html' -> 'index.html')
                     const linkPath = link.getAttribute('href').split('/').pop() || 'index.html';
-                    if (linkPath === currentPath) {
+                    
+                    if (linkPath === currentPage) {
                         link.classList.add('active-link');
                         link.classList.remove('text-gray-600', 'hover:lab-color'); // Ensure gray is removed
                     }
                 });
-
 
             } catch (error) {
                 console.error("Error loading navigation:", error);
@@ -145,20 +149,23 @@
         }
 
 
-        // Function to load news data (existing function, slightly cleaner error handling)
+        // Function to load news data (assuming news_data.json exists at the project root)
         async function loadNews() {
             const newsListDiv = document.getElementById('news-list');
             
             try {
+                // Note: using relative path for news_data.json
                 const response = await fetch('./news_data.json'); 
                 
                 if (!response.ok) {
+                    if (response.status === 404) {
+                        throw new Error("File not found (404). Make sure 'news_data.json' exists in the same directory.");
+                    }
                     throw new Error(`Failed to fetch news data: ${response.statusText}`);
                 }
                 
                 const newsData = await response.json();
                 
-                // Use a modern loop and template literals for cleaner code
                 newsListDiv.innerHTML = newsData.map(item => `
                     <div class="border-b pb-4">
                         <span class="text-sm font-semibold ${item.color} block">${item.date}</span>
@@ -180,8 +187,6 @@
             }
         }
 
-        // --- THE CRITICAL FIX ---
-        // Use DOMContentLoaded to ensure both functions run safely once the page structure is available.
         window.addEventListener('DOMContentLoaded', () => {
             loadNavbar();
             loadNews();
