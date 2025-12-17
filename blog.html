@@ -1,1 +1,92 @@
-blog
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Microbiome Lab @ CBNU</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font and set up custom styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7; /* Light neutral background */
+        }
+        /* Custom colors based on previous design */
+        .lab-color {
+            color: #0d47a1; /* Deep Blue */
+        }
+        .nav-link:hover {
+            color: #1e88e5; /* Lighter blue on hover */
+        }
+    </style>
+</head>
+<body class="text-gray-800 leading-relaxed">
+
+    <!-- 1. Header and Navigation (Note: Links back to root use ../) -->
+    <header class="shadow-md bg-white sticky top-0 z-10 border-b border-gray-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Lab Logo -->
+                <div class="flex-shrink-0">
+                    <a href="../index.html" class="lab-color tracking-tight flex items-center space-x-2">
+                        <img src="../MBLLOGO4.png" alt="Microbiome Lab Logo" class="h-8 w-auto">
+                        <span class="text-2xl font-extrabold text-gray-800">Microbiome Lab</span>
+                    </a>
+                </div>
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex space-x-6 text-base font-medium">
+                    <a href="../index.html" class="nav-link text-gray-600 hover:lab-color transition duration-150 ease-in-out">Home</a>
+                    <a href="../research.html" class="nav-link text-gray-600 hover:lab-color transition duration-150 ease-in-out">Research</a>
+                    <a href="../people.html" class="nav-link text-gray-600 hover:lab-color transition duration-150 ease-in-out">People</a>
+                    <a href="../publications.html" class="nav-link text-gray-600 hover:lab-color transition duration-150 ease-in-out">Publications</a>
+                    <a href="#" class="nav-link lab-color transition duration-150 ease-in-out font-bold border-b-2 border-current">Blog</a> <!-- Active Link -->
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. Main Content Container -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <h1 class="text-4xl font-extrabold lab-color mb-8 border-b pb-3">Lab Blog & Insights</h1>
+
+        <section id="blog-posts" class="space-y-6">
+            
+            <p class="text-lg text-gray-600 mb-6">
+                This space is dedicated to informal updates, scientific commentaries, and laboratory life.
+            </p>
+
+            <!-- Placeholder Blog Post 1 -->
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-400">
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Decoding the ARGs: A New Workflow</h3>
+                <p class="text-sm text-gray-500 mb-3">Posted by Dr. Unno on December 1, 2025</p>
+                <p class="text-gray-700">
+                    We successfully implemented the new high-performance computing pipeline for antibiotic resistance gene (ARG) tracking this week. This upgrade significantly cuts down our analysis time and improves detection sensitivity across complex metagenomic samples.
+                </p>
+                <a href="#" class="mt-3 inline-block text-sm font-semibold text-blue-500 hover:underline">Continue Reading &rarr;</a>
+            </div>
+
+            <!-- Placeholder Blog Post 2 -->
+            <div class="bg-white p-6 rounded-xl shadow-md border-t-4 border-gray-300">
+                <h3 class="text-2xl font-bold text-gray-800 mb-2">Student Spotlight: Geon Choi's Ph.D. Work</h3>
+                <p class="text-sm text-gray-500 mb-3">Posted by Nyongjin Chun on November 15, 2025</p>
+                <p class="text-gray-700">
+                    Geon presented compelling preliminary data on microbial source tracking (MST) methods at the weekly lab meeting. His machine learning approach promises higher accuracy in identifying the origin of fecal contamination in our river samples.
+                </p>
+                <a href="#" class="mt-3 inline-block text-sm font-semibold text-blue-500 hover:underline">Continue Reading &rarr;</a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p>&copy; 2025 Microbiome Lab. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
