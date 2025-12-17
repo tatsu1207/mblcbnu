@@ -12,7 +12,7 @@
     "title_tag": "Home coming day in Jeju:",
     "content": "Allumni and current lab members gathered in Jeju. We also pariticipated in Marathon and had small symposium later on.",
     "link": "blogs/251116.html",
-    "link_text": "Click for Details"
+    "link_text": "Click here for details"
   } 
   // ... and perhaps a missing comma before the next item starts, 
   // or a comma here if this is the last item but the parser expects more.
