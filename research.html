@@ -1,1 +1,123 @@
-this page is for research
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research | Microbiome Lab @ CBNU</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Use Inter font and set up custom styles -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f7f7; /* Light neutral background */
+        }
+        /* Custom colors based on previous design */
+        .lab-color {
+            color: #0d47a1; /* Deep Blue */
+        }
+        .lab-bg {
+            background-color: #0d47a1;
+        }
+        .nav-link:hover {
+            color: #1e88e5; /* Lighter blue on hover */
+        }
+    </style>
+</head>
+<body class="text-gray-800 leading-relaxed">
+
+    <!-- 1. Header and Navigation (Identical to index.html) -->
+    <header class="shadow-md bg-white sticky top-0 z-10 border-b border-gray-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Lab Logo -->
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="lab-color tracking-tight flex items-center space-x-2">
+                        <img src="./MBLLOGO4.png" alt="Microbiome Lab Logo" class="h-8 w-auto">
+                        <span class="text-2xl font-extrabold text-gray-800">Microbiome Lab</span>
+                    </a>
+                </div>
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex space-x-6 text-base font-medium">
+                    <a href="index.html" class="nav-link text-gray-600 hover:lab-color transition duration-150 ease-in-out">Home</a>
+                    <a href="#" class="nav-link lab-color transition duration-150 ease-in-out font-bold border-b-2 border-current">Research</a> <!-- Active Link -->
+                    <a href="people.html" class="nav-link text-gray-600 hover:lab-color transition duration-150 ease-in-out">People</a>
+                    <a href="publications.html" class="nav-link text-gray-600 hover:lab-color transition duration-150 ease-in-out">Publications</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. Main Content Container -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <h1 class="text-4xl font-extrabold lab-color mb-8 border-b pb-3">Projects</h1>
+
+        <p class="text-lg text-gray-700 mb-10">
+            The Microbiome Lab employs a multidisciplinary approach, bridging microbiology, bioinformatics, and environmental science to tackle urgent challenges related to bacterial ecology, disease, and resistance.
+        </p>
+
+        <!-- Research Areas Grid (Now a single focus) -->
+        <section id="research-areas" class="space-y-8">
+
+            <!-- Research Area 1: Computational Metagenomics & Genomics -->
+            <div class="bg-white rounded-xl shadow-lg p-6 border-t-4 border-blue-600">
+                <h3 class="text-2xl font-extrabold lab-color mb-3">Computational Metagenomics & Genomics</h3>
+                
+                <!-- Enlarged Project Title and Duration -->
+                <h4 class="text-xl font-bold lab-color mb-2">
+                    농생명 마이크로바이옴 데이터베이스 공공 서비스 개발
+                </h4>
+                <p class="text-sm text-gray-600 mb-4">(2025.06 - 2028.12)</p>
+
+                <p class="text-gray-600 text-base mb-4">
+                    <span class="font-semibold text-gray-700">Project Description:</span> This project aims to provide integrated services through the development of data standardization, a supercomputing-based analysis system, data bank construction, and quantitative analysis technology for the systematic management of the agricultural and life science microbiome.
+                </p>
+                <ul class="list-disc pl-5 text-sm text-gray-500 space-y-1">
+                    <li>Development of web-based portal for microbiome data access.</li>
+                    <li>Analysis of antibiotic resistance genes (ARGs) in diverse environments.</li>
+                    <li>Metagenomic assembly and functional annotation of unculturable bacteria.</li>
+                </ul>
+                <a href="농생명마이크로.html" class="mt-4 inline-block text-sm font-semibold text-blue-500 hover:underline">Click here for details</a>
+            </div>
+            
+            <!-- Removed Research Area 2: Host-Microbe and Host-Pathogen Interactions -->
+            <!-- Removed Research Area 3: Biofilm Dynamics and Disruption -->
+
+        </section>
+        
+        <!-- Completed Projects Section -->
+        <section id="projects" class="mt-12 bg-gray-100 rounded-xl shadow-inner p-8">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4 border-b border-gray-300 pb-2">Completed Projects</h2>
+            <p class="text-gray-600">
+                [This area lists our significant completed research grants and projects.]
+            </p>
+            <ul class="mt-4 space-y-3 text-sm">
+                <!-- Sorted by completion date (most recent first) -->
+                <li><span class="font-semibold lab-color">환경유전체 기반 항생제 내성 추적기법(LMRA) 개발</span> (한국연구재단, 중견, 2021.09 - 2024.02)</li>
+                <li><span class="font-semibold lab-color">OneHealth 항생제내성균 포털시스템 구축을 위한 다분야 유전체 통합분석</span> (질병관리청, 학술용역, 2020.06 - 2022.12)</li>
+                <li><span class="font-semibold lab-color">장내 마이크로바이옴 기반 식품 기능성 평가 시스템 개발</span> (IPET, 2018.07 - 2021.12)</li>
+                <li><span class="font-semibold lab-color">도시 슬러지 방류수 내 항생제 내성유전체 분석</span> (환경부, 2016.05 - 2020.05)</li>
+                <li><span class="font-semibold lab-color">양식장 방류수 항생제 내성유전체 조사</span> (KIMST, 2018.09 - 2020.04)</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- Footer (Identical to index.html) -->
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p>&copy; 2025 Microbiome Lab. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- JavaScript for Mobile Menu Toggle (still included but simplified) -->
+    <script>
+        document.getElementById('mobile-menu-button')?.addEventListener('click', function() {
+            // Note: Mobile menu button is only in the template structure for completeness
+        });
+    </script>
+
+</body>
+</html>
