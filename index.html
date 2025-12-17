@@ -3,128 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Microbiome Lab (MBL) @ CBNU | Molecular Biology Lab Homepage</title>
+    <title>Microbiome Lab | CBNU - Welcome</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Use Inter font and set up dark/light mode -->
+    <!-- Use Inter font and set up custom styles -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f7f7f7; /* Light neutral background inspired by Unno Lab */
+            background-color: #f7f7f7; /* Light neutral background */
         }
-        /* Custom class for the main lab color (a deep blue/teal for academic look) */
+        /* Custom colors based on previous design */
         .lab-color {
             color: #0d47a1; /* Deep Blue */
         }
         .lab-bg {
             background-color: #0d47a1;
         }
-        .section-header {
-            font-weight: 700;
-            border-left: 5px solid #0d47a1;
-            padding-left: 1rem;
-        }
         .nav-link:hover {
             color: #1e88e5; /* Lighter blue on hover */
+        }
+        /* Style for the scrollbar to be less obtrusive */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #0d47a150; /* Semi-transparent blue */
+            border-radius: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f1f1;
         }
     </style>
 </head>
 <body class="text-gray-800 leading-relaxed">
 
     <!-- 1. Header and Navigation -->
-    <header class="shadow-sm bg-white sticky top-0 z-10 border-b border-gray-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Lab Name / Logo -->
+    <header class="shadow-md bg-white sticky top-0 z-10 border-b border-gray-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Lab Logo -->
                 <div class="flex-shrink-0">
-                    <a href="#home" class="lab-color tracking-tight">
-                        <img src="./MBLLOGO4.png" alt="Microbiome Lab (MBL) @ CBNU Logo" class="h-10 w-auto">
+                    <a href="#" class="lab-color tracking-tight flex items-center space-x-2">
+                        <!-- Ensure MBLLOGO4.png is uploaded to the repository root -->
+                        <img src="./MBLLOGO4.png" alt="Microbiome Lab Logo" class="h-8 w-auto">
+                        <span class="text-2xl font-extrabold text-gray-800">Microbiome Lab</span>
                     </a>
                 </div>
                 <!-- Navigation Links -->
-                <nav class="hidden md:flex space-x-8 text-lg font-medium">
+                <nav class="hidden md:flex space-x-6 text-base font-medium">
                     <a href="#home" class="nav-link lab-color transition duration-150 ease-in-out">Home</a>
-                    <a href="#news" class="nav-link text-gray-600 hover:lab-color transition duration-150 ease-in-out">News</a>
-                    <a href="#research" class="nav-link text-gray-600 hover:lab-color transition duration-150 ease-in-out">Research</a>
-                    <a href="#people" class="nav-link text-gray-600 hover:lab-color transition duration-150 ease-in-out">People</a>
-                    <a href="#publications" class="nav-link text-gray-600 hover:lab-color transition duration-150 ease-in-out">Publications</a>
-                    <!-- Removed Contact link -->
+                    <a href="research.html" class="nav-link text-gray-600 hover:lab-color transition duration-150 ease-in-out">Research</a>
+                    <a href="people.html" class="nav-link text-gray-600 hover:lab-color transition duration-150 ease-in-out">People</a>
+                    <a href="publications.html" class="nav-link text-gray-600 hover:lab-color transition duration-150 ease-in-out">Publications</a>
                 </nav>
 
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-gray-600 hover:bg-gray-100 hover:text-gray-800 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
-                    </svg>
-                </button>
-            </div>
-        </div>
-
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden">
-            <div class="pt-2 pb-3 space-y-1">
-                <a href="#home" class="block px-4 py-2 text-base font-medium lab-color bg-blue-50 hover:bg-blue-100">Home</a>
-                <a href="#news" class="block px-4 py-2 text-base font-medium text-gray-600 hover:lab-color hover:bg-gray-100">News</a>
-                <a href="#research" class="block px-4 py-2 text-base font-medium text-gray-600 hover:lab-color hover:bg-gray-100">Research</a>
-                <a href="#people" class="block px-4 py-2 text-base font-medium text-gray-600 hover:lab-color hover:bg-gray-100">People</a>
-                <a href="#publications" class="block px-4 py-2 text-base font-medium text-gray-600 hover:lab-color hover:bg-gray-100">Publications</a>
-                <!-- Removed Contact link -->
+                <!-- Mobile Menu Button (omitted for simplicity, but template structure remains) -->
             </div>
         </div>
     </header>
 
     <!-- 2. Main Content Container -->
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 
-        <!-- Section: Welcome / Hero (Static Content) -->
-        <section id="home" class="bg-white rounded-xl shadow-lg p-8 sm:p-12 mb-12 border-t-4 lab-bg">
-            <div class="flex items-start flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-8">
-                <!-- Logo on the left (h-24 is 6rem, decent size) -->
-                <img src="./MBLLOGO4.png" alt="Microbiome Lab Logo" class="h-24 w-auto rounded-lg flex-shrink-0">
+        <!-- Hero Section: Welcome and Affiliation (WHITE Block) -->
+        <section id="home" class="bg-white rounded-xl shadow-2xl p-10 sm:p-16 mb-12 border-t-4 border-gray-200">
+            <div class="flex items-start flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-10">
+                
+                <!-- Logo on the left -->
+                <div class="flex-shrink-0">
+                    <!-- The logo is shown slightly larger here for emphasis -->
+                    <img src="./MBLLOGO4.png" alt="Microbiome Lab Logo" class="h-28 w-auto rounded-lg shadow-xl border-4 border-gray-300">
+                </div>
+
                 <!-- Text content on the right -->
-                <div>
-                    <h1 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">
-                        Welcome to the Microbiome Lab (MBL) @ CBNU Research Group
+                <div class="text-gray-800">
+                    <h1 class="text-5xl sm:text-6xl font-extrabold lab-color mb-4 leading-tight">
+                        Microbiome Lab
                     </h1>
-                    <p class="text-lg text-white">
-                        We are the Microbiome Lab (MBL) at Chungbuk National University (CBNU). Our research focuses on microbial pathogenesis, host-pathogen interactions, and the development of novel diagnostic tools using advanced molecular techniques.
+                    <p class="text-2xl font-light mb-4">
+                        Department of Microbiology, Chungbuk National University
                     </p>
+                    <p class="text-lg font-medium">
+                        Cheongju, South Korea
+                    </p>
+                    
+                    <!-- Removed button: "Learn About Our Research" -->
                 </div>
             </div>
         </section>
 
-        <!-- Dynamic Content Containers (These would be filled by Jekyll/Hugo) -->
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-            <div id="news-section" class="lg:col-span-2">
-                <!-- Latest News & Highlights (Content from news.md goes here) -->
+        <!-- General News Section (Replaced 'Our Mission') -->
+        <section id="news" class="bg-white rounded-xl shadow-lg p-10 mb-12">
+            <h2 class="text-3xl font-bold lab-color mb-4 border-b pb-2">Latest News & Updates</h2>
+            <!-- Scroll Container Added - The 'custom-scrollbar' class applies a cleaner style -->
+            <div id="news-container" class="h-96 overflow-y-auto pr-4 custom-scrollbar"> 
+                <!-- News items will be dynamically injected here by JavaScript -->
+                <div id="news-list" class="space-y-6">
+                    <p class="text-gray-500 italic">Loading latest news...</p>
+                </div>
             </div>
-            <div id="quick-links-section" class="lg:col-span-1 space-y-4">
-                <!-- Quick Links & PI Contact (Part of news.md goes here) -->
-            </div>
-        </div>
-
-        <section id="research" class="bg-white rounded-xl shadow-lg p-8 mb-12">
-            <div id="research-section-content">
-                <!-- Content from research.md goes here -->
-            </div>
+            <!-- End Scroll Container -->
         </section>
 
-        <section id="people" class="bg-white rounded-xl shadow-lg p-8 mb-12">
-            <div id="people-section-content">
-                <!-- Content from people.md goes here -->
+        <!-- Quick Contact / Location -->
+        <section id="contact-info" class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+            <div class="bg-white rounded-xl shadow-lg p-8 border-l-4 border-blue-400">
+                <h3 class="text-2xl font-semibold lab-color mb-3">Principal Investigator</h3>
+                <p class="text-gray-700">Dr. Tatsuya Unno</p>
+                <p class="text-gray-500 text-sm mt-1">
+                    <a href="mailto:tatsu@cbnu.ac.kr" class="text-blue-500 hover:underline">tatsu@cbnu.ac.kr</a><br>
+                    Office: 043-261-2304
+                </p>
             </div>
-        </section>
-
-        <section id="publications" class="bg-white rounded-xl shadow-lg p-8 mb-12">
-            <div id="publications-section-content">
-                <!-- Content from publications.md goes here -->
-            </div>
-        </section>
-
-        <section id="contact" class="bg-white rounded-xl shadow-lg p-8 mb-12">
-            <div id="contact-section-content">
-                <!-- Content from contact.md goes here -->
+            <div class="bg-white rounded-xl shadow-lg p-8 border-l-4 border-blue-400">
+                <h3 class="text-2xl font-semibold lab-color mb-3">Physical Address</h3>
+                <p class="text-gray-700">
+                    Department of Microbiology<br>
+                    Department of Biological Sciences and Biotechnology (Grad. school)<br>
+                    Chungbuk National University<br>
+                    Chungdae-ro 1, Seowon-Gu, Cheongju,<br>
+                    Chungbuk 28644, Republic of Korea
+                </p>
             </div>
         </section>
 
@@ -132,19 +132,80 @@
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-6 mt-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
-            <p>&copy; 2025 Microbiome Lab (MBL) @ CBNU. Powered by GitHub Pages and the <a href="https://github.com/alshedivat/al-folio" class="text-blue-300 hover:text-blue-100">al-folio</a> inspired design.</p>
-            <p class="mt-2 text-gray-400">Last updated: December 2025</p>
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p>&copy; 2025 Microbiome Lab. All rights reserved.</p>
         </div>
     </footer>
-
-    <!-- JavaScript for Mobile Menu Toggle -->
+    
+    <!-- JavaScript -->
     <script>
-        // Mobile menu toggle script
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            var menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+        // Load news data from JSON file and render it
+        async function loadNews() {
+            const newsListDiv = document.getElementById('news-list');
+            
+            try {
+                // Fetching the file using just the filename 'news_data.json'
+                const response = await fetch('news_data.json');
+                
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch news data: ${response.statusText}`);
+                }
+                
+                const newsData = await response.json();
+                
+                newsListDiv.innerHTML = ''; // Clear 'Loading' message
+
+                newsData.forEach(item => {
+                    // Create the main news item div
+                    const newsItemDiv = document.createElement('div');
+                    
+                    // Create the date span
+                    const dateSpan = document.createElement('span');
+                    dateSpan.className = `text-sm font-semibold ${item.color} block`;
+                    dateSpan.textContent = item.date;
+                    newsItemDiv.appendChild(dateSpan);
+                    
+                    // Create the content paragraph
+                    const contentP = document.createElement('p');
+                    contentP.className = 'text-lg font-medium text-gray-800 mt-1';
+                    
+                    // Add the bold title tag
+                    const titleTagSpan = document.createElement('span');
+                    titleTagSpan.className = 'lab-color font-bold mr-2';
+                    titleTagSpan.textContent = item.title_tag;
+                    contentP.appendChild(titleTagSpan);
+                    
+                    // Add the main content text
+                    contentP.innerHTML += item.content; // Use innerHTML to respect possible *E. coli* italics
+                    
+                    newsItemDiv.appendChild(contentP);
+                    
+                    // Add link if available
+                    if (item.link && item.link_text) {
+                        const linkA = document.createElement('a');
+                        linkA.href = item.link;
+                        linkA.className = 'text-blue-500 hover:underline text-sm block mt-1';
+                        linkA.textContent = item.link_text;
+                        newsItemDiv.appendChild(linkA);
+                    }
+
+                    newsListDiv.appendChild(newsItemDiv);
+                });
+
+            } catch (error) {
+                console.error("Error loading news:", error);
+                newsListDiv.innerHTML = `<p class="text-red-600">Error: Could not load news updates. Please check the 'news_data.json' file. (${error.message})</p>`;
+            }
+        }
+
+        // Run the function when the window loads
+        window.onload = loadNews;
+
+        // Mobile menu toggle script (kept for completeness)
+        document.getElementById('mobile-menu-button')?.addEventListener('click', function() {
+            // Note: Mobile menu button is only in the template structure for completeness
         });
     </script>
+
 </body>
 </html>
