@@ -4,31 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Microbiome Lab | CBNU - Welcome</title>
-    <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Use Inter font and set up custom styles -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #f7f7f7; /* Light neutral background */
+            background-color: #f7f7f7;
         }
-        /* Custom colors based on previous design */
         .lab-color {
-            color: #0d47a1; /* Deep Blue */
+            color: #0d47a1;
         }
         .lab-bg {
             background-color: #0d47a1;
         }
         .nav-link:hover {
-            color: #1e88e5; /* Lighter blue on hover */
+            color: #1e88e5;
         }
-        /* Style for the scrollbar to be less obtrusive */
         .custom-scrollbar::-webkit-scrollbar {
             width: 8px;
         }
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background-color: #0d47a150; /* Semi-transparent blue */
+            background-color: #0d47a150;
             border-radius: 4px;
         }
         .custom-scrollbar::-webkit-scrollbar-track {
@@ -38,46 +34,35 @@
 </head>
 <body class="text-gray-800 leading-relaxed">
 
-    <!-- 1. Header and Navigation -->
     <header class="shadow-md bg-white sticky top-0 z-10 border-b border-gray-200">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
-                <!-- Lab Logo -->
                 <div class="flex-shrink-0">
-                    <a href="#home" class="lab-color tracking-tight flex items-center space-x-2">
-                        <!-- Ensure MBLLOGO4.png is uploaded to the repository root -->
+                    <a href="index.html" class="lab-color tracking-tight flex items-center space-x-2">
                         <img src="./MBLLOGO4.png" alt="Microbiome Lab Logo" class="h-8 w-auto">
                         <span class="text-2xl font-extrabold text-gray-800">Microbiome Lab</span>
                     </a>
                 </div>
-                <!-- Navigation Links - NOW POINTING TO EXTERNAL PAGES -->
                 <nav class="hidden md:flex space-x-6 text-base font-medium">
                     <a href="#home" class="nav-link lab-color transition duration-150 ease-in-out">Home</a>
                     <a href="research.html" class="nav-link text-gray-600 hover:lab-color transition duration-150 ease-in-out">Research</a>
                     <a href="people.html" class="nav-link text-gray-600 hover:lab-color transition duration-150 ease-in-out">People</a>
                     <a href="publications.html" class="nav-link text-gray-600 hover:lab-color transition duration-150 ease-in-out">Publications</a>
-                    <a href="blog.html" class="nav-link text-gray-600 hover:lab-color transition duration-150 ease-in-out">Blogs</a>
+                    <a href="blogs/index.html" class="nav-link text-gray-600 hover:lab-color transition duration-150 ease-in-out">Blog</a>
                 </nav>
-
-                <!-- Mobile Menu Button (omitted for simplicity, but template structure remains) -->
             </div>
         </div>
     </header>
 
-    <!-- 2. Main Content Container -->
     <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
 
-        <!-- Hero Section: Welcome and Affiliation (WHITE Block) -->
         <section id="home" class="bg-white rounded-xl shadow-2xl p-10 sm:p-16 mb-12 border-t-4 border-gray-200">
             <div class="flex items-start flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-10">
                 
-                <!-- Logo on the left -->
                 <div class="flex-shrink-0">
-                    <!-- The logo is shown slightly larger here for emphasis -->
                     <img src="./MBLLOGO4.png" alt="Microbiome Lab Logo" class="h-28 w-auto rounded-lg shadow-xl border-4 border-gray-300">
                 </div>
 
-                <!-- Text content on the right -->
                 <div class="text-gray-800">
                     <h1 class="text-5xl sm:text-6xl font-extrabold lab-color mb-4 leading-tight">
                         Microbiome Lab
@@ -88,28 +73,20 @@
                     <p class="text-lg font-medium">
                         Cheongju, South Korea
                     </p>
-                    
-                    <!-- Removed button: "Learn About Our Research" -->
                 </div>
             </div>
         </section>
 
-        <!-- General News Section (Replaced 'Our Mission') -->
         <section id="news" class="bg-white rounded-xl shadow-lg p-10 mb-12">
             <h2 class="text-3xl font-bold lab-color mb-4 border-b pb-2">Latest News & Updates</h2>
-            <!-- Scroll Container Added - The 'custom-scrollbar' class applies a cleaner style -->
             <div id="news-container" class="h-96 overflow-y-auto pr-4 custom-scrollbar"> 
-                <!-- News items will be dynamically injected here by JavaScript -->
                 <div id="news-list" class="space-y-6">
                     <p class="text-gray-500 italic">Loading latest news...</p>
                 </div>
             </div>
-            <!-- End Scroll Container -->
         </section>
 
-        <!-- Quick Contact / Location: Adjusted to md:grid-cols-5 for 40%/60% split -->
         <section id="contact-info" class="grid grid-cols-1 md:grid-cols-5 gap-8 mb-12">
-            <!-- Principal Investigator (40% width on desktop - col-span-2) -->
             <div class="md:col-span-2 bg-white rounded-xl shadow-lg p-8 border-l-4 border-blue-400">
                 <h3 class="text-2xl font-semibold lab-color mb-3">Principal Investigator</h3>
                 <p class="text-gray-700">Dr. Tatsuya Unno</p>
@@ -118,7 +95,6 @@
                     Office: 043-261-2304
                 </p>
             </div>
-            <!-- Physical Address (60% width on desktop - col-span-3) -->
             <div class="md:col-span-3 bg-white rounded-xl shadow-lg p-8 border-l-4 border-blue-400">
                 <h3 class="text-2xl font-semibold lab-color mb-3">Physical Address</h3>
                 <p class="text-gray-700">
@@ -133,22 +109,20 @@
 
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-6 mt-12">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
-            <p>&copy; 2025 Microbiome Lab. All rights reserved.</p>
+    <footer>
+        <div class="bg-gray-800 text-white py-6 mt-12">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+                <p>&copy; 2025 Microbiome Lab. All rights reserved.</p>
+            </div>
         </div>
     </footer>
     
-    <!-- JavaScript -->
     <script>
-        // Load news data from JSON file and render it
         async function loadNews() {
             const newsListDiv = document.getElementById('news-list');
             
             try {
-                // Fetching the file using just the filename 'news_data.json'
-                const response = await fetch('news_data.json');
+                const response = await fetch('./news_data.json'); // FIX: 명시적 상대 경로 './' 추가
                 
                 if (!response.ok) {
                     throw new Error(`Failed to fetch news data: ${response.statusText}`);
@@ -156,37 +130,32 @@
                 
                 const newsData = await response.json();
                 
-                newsListDiv.innerHTML = ''; // Clear 'Loading' message
+                newsListDiv.innerHTML = '';
 
                 newsData.forEach(item => {
-                    // Create the main news item div
                     const newsItemDiv = document.createElement('div');
                     
-                    // Create the date span
                     const dateSpan = document.createElement('span');
                     dateSpan.className = `text-sm font-semibold ${item.color} block`;
                     dateSpan.textContent = item.date;
                     newsItemDiv.appendChild(dateSpan);
                     
-                    // Create the content paragraph
                     const contentP = document.createElement('p');
                     contentP.className = 'text-lg font-medium text-gray-800 mt-1';
                     
-                    // Add the bold title tag
                     const titleTagSpan = document.createElement('span');
                     titleTagSpan.className = 'lab-color font-bold mr-2';
                     titleTagSpan.textContent = item.title_tag;
                     contentP.appendChild(titleTagSpan);
                     
-                    // Add the main content text
-                    contentP.innerHTML += item.content; // Use innerHTML to respect possible *E. coli* italics
+                    contentP.innerHTML += item.content;
                     
                     newsItemDiv.appendChild(contentP);
                     
-                    // Add link if available
                     if (item.link && item.link_text) {
                         const linkA = document.createElement('a');
                         linkA.href = item.link;
+                        linkA.target = "_blank";
                         linkA.className = 'text-blue-500 hover:underline text-sm block mt-1';
                         linkA.textContent = item.link_text;
                         newsItemDiv.appendChild(linkA);
@@ -201,12 +170,9 @@
             }
         }
 
-        // Run the function when the window loads
         window.onload = loadNews;
 
-        // Mobile menu toggle script (kept for completeness)
         document.getElementById('mobile-menu-button')?.addEventListener('click', function() {
-            // Note: Mobile menu button is only in the template structure for completeness
         });
     </script>
 
