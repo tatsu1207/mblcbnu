@@ -42,6 +42,30 @@
                                     <span class="block text-xs text-gray-500">Nov 16, 2025</span>
                                 </a>
                             </li>
+                            <!-- Dummy Link: Summer Workshop -->
+                            <li>
+                                <a href="./blogs/251001.html" onclick="loadPost(event, this.href)" 
+                                   class="blog-link block text-sm text-gray-700 hover:text-red-600 transition duration-150 ease-in-out p-2 rounded-lg hover:bg-gray-50">
+                                    <span class="font-medium text-red-600">Summer Workshop: Bioinformatics</span>
+                                    <span class="block text-xs text-gray-500">Oct 01, 2025</span>
+                                </a>
+                            </li>
+                            <!-- Dummy Link: New Publication -->
+                            <li>
+                                <a href="./blogs/250915.html" onclick="loadPost(event, this.href)" 
+                                   class="blog-link block text-sm text-gray-700 hover:text-red-600 transition duration-150 ease-in-out p-2 rounded-lg hover:bg-gray-50">
+                                    <span class="font-medium text-red-600">New Publication: Microbial Ecology</span>
+                                    <span class="block text-xs text-gray-500">Sep 15, 2025</span>
+                                </a>
+                            </li>
+                            <!-- Dummy Link: Lab Retreat -->
+                            <li>
+                                <a href="./blogs/250820.html" onclick="loadPost(event, this.href)" 
+                                   class="blog-link block text-sm text-gray-700 hover:text-red-600 transition duration-150 ease-in-out p-2 rounded-lg hover:bg-gray-50">
+                                    <span class="font-medium text-red-600">Lab Retreat: Team Building</span>
+                                    <span class="block text-xs text-gray-500">Aug 20, 2025</span>
+                                </a>
+                            </li>
                             
                         </ul>
                     </nav>
@@ -50,22 +74,7 @@
 
             <!-- Main Blog Content Area (3/4 width on large screens) -->
             <section id="blog-posts" class="lg:col-span-3 space-y-6">
-                
-                <p id="intro-text" class="text-lg text-gray-600 mb-6">
-                    This space is dedicated to informal updates, scientific commentaries, and laboratory life.
-                </p>
-                
-                <!-- Placeholder for the Jeju Homecoming Day Post Link -->
-                <div id="post-preview-251116" class="bg-white p-6 rounded-xl shadow-md border-l-4 border-red-500">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Home coming day in Jeju</h3>
-                    <p class="text-sm text-gray-500 mb-3">Posted on November 16, 2025</p>
-                    <p class="text-gray-700">
-                        Alumni and current lab members gathered in Jeju. We also participated in a Marathon and had small symposium later on.
-                    </p>
-                    <a href="./blogs/251116.html" onclick="loadPost(event, this.href)" 
-                       class="blog-link mt-3 inline-block text-sm font-semibold text-red-500 hover:underline">Click here for details &rarr;</a>
-                </div>
-
+                <!-- Blog post content will be loaded here dynamically -->
             </section>
         </div>
 
@@ -79,13 +88,16 @@
     
     <!-- Page-specific JavaScript for loading blog posts -->
     <script>
-        // Function to dynamically load and display a blog post
+        // Function to dynamically load and display a blog post.
+        // The 'event' parameter is optional. If provided, its default action is prevented.
         async function loadPost(event, url) {
-            event.preventDefault(); // Stop the browser from navigating
+            if (event) {
+                event.preventDefault(); // Stop the browser from navigating if a link was clicked
+            }
             
             const blogPostsSection = document.getElementById('blog-posts');
             
-            // 1. Show loading state
+            // Show a loading state
             blogPostsSection.innerHTML = `
                 <div class="text-center py-20">
                     <svg class="animate-spin h-8 w-8 text-blue-500 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
@@ -94,14 +106,12 @@
             `;
 
             try {
-                // 2. Fetch the content of the full blog post HTML file
                 const response = await fetch(url);
                 if (!response.ok) {
                     throw new Error(`Failed to load post: ${response.statusText}`);
                 }
                 const htmlText = await response.text();
 
-                // 3. Parse the fetched HTML to extract the main article content
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(htmlText, 'text/html');
                 const articleContent = doc.querySelector('.blog-container');
@@ -122,6 +132,13 @@
                 blogPostsSection.innerHTML = `<div class="p-8 text-center bg-red-100 text-red-700 rounded-lg max-w-lg mx-auto">Failed to load post content.</div>`;
             }
         }
+
+        // When the page loads, automatically load the most recent post.
+        window.addEventListener('DOMContentLoaded', () => {
+            // The URL of the post to load by default.
+            const initialPostUrl = './blogs/251116.html';
+            loadPost(null, initialPostUrl);
+        });
     </script>
     <!-- Link to the external JavaScript file -->
     <script src="assets/js/main.js"></script>
