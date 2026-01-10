@@ -110,6 +110,52 @@ function updateCopyrightYear() {
     }
 }
 
+/**
+ * Fetches visitor count and location to display in the footer.
+ * This will only run if the '#visitor-info' element is present.
+ */
+async function updateVisitorInfo() {
+    const visitorInfoDiv = document.getElementById('visitor-info');
+    if (!visitorInfoDiv) {
+        return; // Exit if the container isn't on the page
+    }
+
+    const counterSpan = document.getElementById('visitor-counter');
+    const locationSpan = document.getElementById('visitor-location');
+
+    // Fetch and display visitor count
+    try {
+        // We use a unique namespace for your site to ensure the count is specific.
+        const response = await fetch('https://api.countapi.xyz/hit/mblcbnu-website/index');
+        const data = await response.json();
+        if (counterSpan) {
+            counterSpan.textContent = `Total Visitors: ${data.value}`;
+        }
+    } catch (error) {
+        console.error('Error fetching visitor count:', error);
+        if (counterSpan) {
+            counterSpan.textContent = 'Visitor count unavailable.';
+        }
+    }
+
+    // Fetch and display visitor location
+    try {
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        if (locationSpan && data.country_name) {
+            // Display a more friendly message
+            locationSpan.textContent = `Welcome, visitor from ${data.country_name}!`;
+        } else if (locationSpan) {
+            locationSpan.textContent = 'Location not detected.';
+        }
+    } catch (error) {
+        console.error('Error fetching visitor location:', error);
+        if (locationSpan) {
+            locationSpan.textContent = 'Location unavailable.';
+        }
+    }
+}
+
 
 /**
  * Main function to run when the DOM is fully loaded.
@@ -123,5 +169,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const isIndexPage = window.location.pathname.endsWith('/') || window.location.pathname.endsWith('index.html');
     if (isIndexPage) {
         loadLatestBlogs();
+        updateVisitorInfo();
     }
 });
