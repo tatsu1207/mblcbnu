@@ -51,45 +51,54 @@ function setActiveNavLink(navContainer) {
 }
 
 /**
- * Fetches news data from a JSON file and populates the news container.
- * This function will only run if the '#news-list' element is present on the page.
+ * Fetches the latest 3 blog posts from blog.html and displays them.
+ * This function will only run if the '#news-list' element is present.
  */
-async function loadNews() {
+async function loadLatestBlogs() {
     const newsListDiv = document.getElementById('news-list');
     if (!newsListDiv) {
-        // If the news container doesn't exist, do nothing.
-        return;
+        return; // Exit if the container isn't on the page
     }
 
     try {
-        const response = await fetch('./news_data.json'); 
+        const response = await fetch('blog.html');
         if (!response.ok) {
-            throw new Error(`Failed to fetch news_data.json: ${response.statusText}`);
+            throw new Error(`Failed to fetch blog.html: ${response.statusText}`);
         }
-        const newsData = await response.json();
+        const htmlText = await response.text();
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(htmlText, 'text/html');
         
-        if (newsData.length > 0) {
-            newsListDiv.innerHTML = newsData.map(item => `
+        const blogLinks = doc.querySelectorAll('#sidebar .blog-link');
+        const posts = [];
+
+        blogLinks.forEach(link => {
+            const title = link.querySelector('span.font-medium').textContent;
+            const date = link.querySelector('span.text-xs').textContent;
+            const url = link.getAttribute('href');
+            posts.push({ title, date, url });
+        });
+
+        const latestThree = posts.slice(0, 3);
+
+        if (latestThree.length > 0) {
+            newsListDiv.innerHTML = latestThree.map(post => `
                 <div class="border-b pb-4">
-                    <span class="text-sm font-semibold ${item.color || 'text-gray-500'} block">${item.date}</span>
+                    <span class="text-sm font-semibold text-gray-500 block">${post.date}</span>
                     <p class="text-lg font-medium text-gray-800 mt-1">
-                        <span class="lab-color font-bold mr-2">${item.title_tag}</span>
-                        ${item.content}
+                        <a href="${post.url}" class="lab-color font-bold hover:underline">${post.title}</a>
                     </p>
-                    ${item.link && item.link_text ? 
-                        `<a href="${item.link}" target="_blank" class="text-blue-500 hover:underline text-sm block mt-1">${item.link_text}</a>` 
-                        : ''
-                    }
                 </div>
             `).join('');
         } else {
-            newsListDiv.innerHTML = `<p class="text-gray-500 italic">No news items to display.</p>`;
+            newsListDiv.innerHTML = `<p class="text-gray-500 italic">No recent blog posts found.</p>`;
         }
     } catch (error) {
-        console.error("Error loading news:", error);
-        newsListDiv.innerHTML = `<p class="text-red-600">Error: Could not load news updates.</p>`;
+        console.error("Error loading latest blogs:", error);
+        newsListDiv.innerHTML = `<p class="text-red-600">Error: Could not load blog updates.</p>`;
     }
 }
+
 
 /**
  * Finds the element with ID 'copyright-year' and sets its text content to the current year.
@@ -108,6 +117,11 @@ function updateCopyrightYear() {
  */
 window.addEventListener('DOMContentLoaded', () => {
     loadNavbar();
-    loadNews(); // This will only run on pages where the news container exists
     updateCopyrightYear();
+
+    // Check if we are on the homepage to load the blog posts
+    const isIndexPage = window.location.pathname.endsWith('/') || window.location.pathname.endsWith('index.html');
+    if (isIndexPage) {
+        loadLatestBlogs();
+    }
 });

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lectures | Microbiome Lab @ CBNU</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="text-gray-800 leading-relaxed">
+
+    <!-- Header for the navigation bar -->
+    <header id="main-nav" class="shadow-md bg-white sticky top-0 z-10 border-b border-gray-200">
+        <!-- Navigation will be loaded here by main.js -->
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+        <h1 class="text-4xl font-extrabold lab-color mb-8 border-b pb-3">Lectures & Teaching</h1>
+
+        <!-- Search Bar -->
+        <div class="mb-8">
+            <input type="text" id="search-bar" placeholder="Search lectures by title or keyword..." 
+                   class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:ring-2 focus:ring-blue-400 focus:border-transparent transition">
+        </div>
+
+        <!-- Lecture List Container -->
+        <section id="lecture-list" class="space-y-8">
+            
+            <!-- Lecture 1: Bioinformatics Programming -->
+            <div class="lecture-item bg-white rounded-xl shadow-lg p-6 border-l-4 border-blue-500">
+                <div class="md:grid md:grid-cols-3 md:gap-8">
+                    <!-- Left Side: YouTube Video -->
+                    <div class="md:col-span-1 mb-4 md:mb-0">
+                        <div class="aspect-w-16 aspect-h-9">
+                            <iframe src="https://www.youtube.com/embed/Cyhj3-73gbE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-lg shadow-md"></iframe>
+                        </div>
+                    </div>
+                    <!-- Right Side: Details -->
+                    <div class="md:col-span-2">
+                        <h3 class="lecture-title text-2xl font-extrabold lab-color mb-2">생명정보학프로그래밍 (Bioinformatics programming)</h3>
+                        <p class="lecture-description text-gray-600 text-base mb-4">
+                            This course introduces students to programming concepts and languages essential for bioinformatics, focusing on practical applications in analyzing biological data. (생물학 데이터 분석에 필수적인 프로그래밍 개념과 언어를 소개하고, 실제 응용에 중점을 둔 과정입니다.)
+                        </p>
+                        <!-- Button to open the modal -->
+                        <button onclick="window.open('bio_pro_course.html', 'CoursePlan', 'width=800,height=600,scrollbars=yes,resizable=yes')" class="syllabus-link inline-block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors">Course Plan</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lecture 2: Life Science English -->
+            <div class="lecture-item bg-white rounded-xl shadow-lg p-6 border-l-4 border-green-500">
+                <div class="md:grid md:grid-cols-3 md:gap-8">
+                    <!-- Left Side: YouTube Video -->
+                    <div class="md:col-span-1 mb-4 md:mb-0">
+                        <div class="aspect-w-16 aspect-h-9">
+                            <iframe src="https://www.youtube.com/embed/nVLSkGFoBRc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-lg shadow-md"></iframe>
+                        </div>
+                    </div>
+                    <!-- Right Side: Details -->
+                    <div class="md:col-span-2">
+                        <h3 class="lecture-title text-2xl font-extrabold lab-color mb-2">생명고학확영어 (Life science English)</h3>
+                        <p class="lecture-description text-gray-600 text-base mb-4">
+                            This course is designed to enhance students' English communication skills within the context of life sciences, including reading scientific papers, writing reports, and delivering presentations. (생명과학 분야의 영어 의사소통 능력을 향상시키기 위한 과정으로, 과학 논문 읽기, 보고서 작성, 발표 기술 등을 다룹니다.)
+                        </p>
+                        <a href="#" class="syllabus-link inline-block bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition-colors">View Syllabus</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lecture 3: Advanced Molecular Biology -->
+            <div class="lecture-item bg-white rounded-xl shadow-lg p-6 border-l-4 border-purple-500">
+                <div class="md:grid md:grid-cols-3 md:gap-8">
+                    <!-- Left Side: YouTube Video -->
+                    <div class="md:col-span-1 mb-4 md:mb-0">
+                        <div class="aspect-w-16 aspect-h-9">
+                            <iframe src="https://www.youtube.com/embed/lBetjsi3F8s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="rounded-lg shadow-md"></iframe>
+                        </div>
+                    </div>
+                    <!-- Right Side: Details -->
+                    <div class="md:col-span-2">
+                        <h3 class="lecture-title text-2xl font-extrabold lab-color mb-2">고급분사생물학 (Advanced molecular biology)</h3>
+                        <p class="lecture-description text-gray-600 text-base mb-4">
+                            An in-depth study of advanced topics in molecular biology, including gene regulation, genomics, proteomics, and molecular techniques used in modern research. (유전자 조절, 유전체학, 단백질체학 및 현대 연구에 사용되는 분자 기술을 포함한 분자 생물학의 고급 주제를 심층적으로 다룹니다.)
+                        </p>
+                        <a href="#" class="syllabus-link inline-block bg-purple-600 text-white px-4 py-2 rounded-md hover:bg-purple-700 transition-colors">View Syllabus</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Message for no search results -->
+            <div id="no-results" class="hidden text-center py-10">
+                <p class="text-gray-500 text-lg">No lectures found matching your search criteria.</p>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Modal for Bioinformatics Syllabus -->
+    <div id="bioinfo-syllabus-modal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-2xl max-w-3xl w-full m-4 max-h-[90vh] overflow-y-auto">
+            <div class="p-6 border-b flex justify-between items-center">
+                <h2 class="text-2xl font-bold lab-color">Syllabus: Bioinformatics Programming</h2>
+                <button onclick="closeModal('bioinfo-syllabus-modal')" class="text-gray-500 hover:text-gray-800 text-3xl">&times;</button>
+            </div>
+            <div class="p-8">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-gray-200 table-fixed">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-1/12">Week</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-2/12">Lecture Title</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-3/12">Content</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-4/12">Goals / Objectives</th>
+                                <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider w-2/12">Reference</th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white divide-y divide-gray-200">
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Orientation</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Course overview, progress, and evaluation criteria; Importance of data analysis in bioinformatics.</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Understand the course roadmap and goals; increase motivation.</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">-</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">2</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Python Environment & Basics</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Jupyter Notebook usage; Basic syntax (variables, lists, dictionaries); Control flow and functions.</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Build a data analysis environment; write code using basic Python syntax.</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Ch. 1</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">3</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Scientific Computing & Data Structures</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">NumPy array calculations; SciPy overview (linear algebra); Pandas Series and DataFrame basics.</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Master basic operations of NumPy and Pandas for matrix and table data.</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Ch. 2</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">4</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Descriptive Statistics & Visualization</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Basic statistics (mean, variance, std dev); Visualization with Matplotlib; Correlation coefficients.</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Describe data characteristics using both numerical values and graphs.</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Ch. 3, 7</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">5</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Probability & Statistical Testing</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Probability distributions (Normal, Poisson); Statistical estimation and testing (t-test); p-values.</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Infer population properties and scientifically judge statistical differences.</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Ch. 4</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">6</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Data Processing with Pandas</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Handling missing values and outliers; Data merging and aggregation; Time-series basics.</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Clean and reshape noisy observational data into an analyzable format.</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Ch. 6</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">7</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Midterm Review</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Review of Weeks 2–6; Q&A session.</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Resolve questions regarding Python basics and statistics to prepare for the midterm.</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">-</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">8</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Midterm Exam</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Practical and written exam on Weeks 2–6.</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Confirm proficiency in data preprocessing and basic statistics.</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">-</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">9</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Applied Computing & Advanced Visualization</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Advanced math with NumPy/SciPy; Advanced visualization (Seaborn); Exploratory Data Analysis (EDA).</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Implement complex mathematical calculations and visualize multivariate relationships.</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Ch. 5, 7</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">10</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Machine Learning 1: Supervised (Regression)</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Machine learning workflow; Simple and Multiple Linear Regression; Model evaluation ($R^2$).</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Build regression models to predict continuous values and model variable relationships.</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Ch. 8</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">11</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Machine Learning 2: Supervised (Classification)</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Logistic Regression, Decision Trees, k-NN, SVM; Breast Cancer Dataset; Overfitting countermeasures.</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Build classification models (e.g., Benign/Malignant) to predict unknown data.</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Ch. 8</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">12</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Machine Learning 3: Unsupervised & PCA</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Clustering (k-means); Principal Component Analysis (PCA); High-dimensional data visualization.</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Find structures in unlabeled data and compress high-dimensional genetic data.</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Ch. 9</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">13</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Model Validation & Tuning</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Cross-Validation; Confusion Matrix, ROC Curve, AUC; Parameter tuning via Grid Search.</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Evaluate generalization performance and learn the improvement process.</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Ch. 10</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">14</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Final Review</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Review of Weeks 9–13; Q&A session.</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Resolve questions regarding ML modeling and evaluation to prepare for the final exam.</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">-</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">15</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Supplementary Lecture</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Schedule adjustment or Comprehensive Exercises.</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Supplement progress or perform practical exercises using Chapter 11 problems.</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">(Ch. 11)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">16</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">Final Exam</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Comprehensive exam covering the entire course (focus on Weeks 9–13).</td>
+                                <td class="px-6 py-4 text-sm text-gray-500">Confirm total skills in ML model construction, evaluation, and data analysis.</td>
+                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 mt-12">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+            <p>&copy; <span id="copyright-year">2025</span> Microbiome Lab. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- Link to the external JavaScript file -->
+    <script src="assets/js/main.js"></script>
+
+    <!-- Page-specific JavaScript for search and modal functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const searchBar = document.getElementById('search-bar');
+            const lectureItems = document.querySelectorAll('.lecture-item');
+            const noResultsMessage = document.getElementById('no-results');
+
+            searchBar.addEventListener('keyup', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                let foundOne = false;
+
+                lectureItems.forEach(item => {
+                    // Search in title and description
+                    const title = item.querySelector('.lecture-title').textContent.toLowerCase();
+                    const description = item.querySelector('.lecture-description').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                        item.style.display = 'block';
+                        foundOne = true;
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+
+                // Show or hide the 'no results' message
+                if (foundOne) {
+                    noResultsMessage.classList.add('hidden');
+                } else {
+                    noResultsMessage.classList.remove('hidden');
+                }
+            });
+        });
+
+        // Modal control functions
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.remove('hidden');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.add('hidden');
+        }
+    </script>
+
+</body>
+</html>
