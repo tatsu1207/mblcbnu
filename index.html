@@ -12,45 +12,9 @@
         This fixes the issue where links like "research.html" become 
         "/mblcbnu/research.html" automatically.
     -->
-    <base href="/mblcbnu/">   
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7f7f7;
-        }
-        .lab-color {
-            color: #0d47a1; /* Deep Blue */
-        }
-        .lab-bg {
-            background-color: #0d47a1;
-        }
-        .nav-link:hover {
-            color: #1e88e5; /* Lighter Blue for hover */
-        }
-        .active-link {
-            color: #1e88e5; /* Active link color */
-            border-bottom: 2px solid #1e88e5;
-            padding-bottom: 0.25rem;
-        }
-        .custom-scrollbar::-webkit-scrollbar {
-            width: 8px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-thumb {
-            background-color: #0d47a150;
-            border-radius: 4px;
-        }
-        .custom-scrollbar::-webkit-scrollbar-track {
-            background: #f1f1f1;
-        }
-        /* Custom YouTube Brand Color */
-        .youtube-color {
-            color: #FF0000;
-        }
-        .youtube-bg {
-            background-color: #FF0000;
-        }
-    </style>
+    <base href="/mblcbnu/">
+    <!-- Link to the external stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="text-gray-800 leading-relaxed">
     <!-- Header remains empty, ready to receive the navigation content from nav.html -->
@@ -73,7 +37,7 @@
                             Microbiome Lab
                         </h1>
                         <!-- Added YouTube Link Button -->
-                        <a href="https://www.youtube.com/@MBL_CBNU/" target="_blank" class="inline-flex items-center px-4 py-2 bg-red-600 text-white text-sm font-bold rounded-full hover:bg-red-700 transition-colors shadow-md w-fit">
+                        <a href="https://www.youtube.com/@unnot1207" target="_blank" class="inline-flex items-center px-4 py-2 bg-red-600 text-white text-sm font-bold rounded-full hover:bg-red-700 transition-colors shadow-md w-fit">
                             <svg class="w-5 h-5 mr-2 fill-current" viewBox="0 0 24 24">
                                 <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
                             </svg>
@@ -113,7 +77,7 @@
                         Office: 043-261-2304
                     </p>
                     <!-- Added secondary YouTube link for contact section -->
-                    <p><a href="https://www.youtube.com/@MBL_CBNU/" target="_blank" class="text-red-600 hover:underline flex items-center">
+                    <p><a href="https://www.youtube.com/@unnot1207" target="_blank" class="text-red-600 hover:underline flex items-center">
                         <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24">
                             <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
                         </svg>
@@ -138,78 +102,12 @@
     <footer>
         <div class="bg-gray-800 text-white py-6 mt-12">
             <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
-                <p>&copy; 2025 Microbiome Lab. All rights reserved.</p>
+                <p>&copy; <span id="copyright-year">2025</span> Microbiome Lab. All rights reserved.</p>
             </div>
         </div>
     </footer>
     
-    <script>
-        // Function to load the external navigation HTML
-	    async function loadNavbar() {
-            try {
-                // Fetch the navigation HTML from the separate file
-                const response = await fetch('./nav.html');
-                if (!response.ok) throw new Error('Navigation file (nav.html) not found.');
-                
-                const data = await response.text();
-                const navContainer = document.getElementById('main-nav');
-                navContainer.innerHTML = data;
-                
-                // Get the current page file name
-                const pathParts = window.location.pathname.split('/').filter(p => p.length > 0);
-                const currentPage = pathParts.pop() || 'index.html';
-
-                // Set active link based on current page path
-                const links = navContainer.querySelectorAll('.nav-link');
-                
-                links.forEach(link => {
-                    const linkPath = link.getAttribute('href').split('/').pop() || 'index.html';
-                    if (linkPath === currentPage) {
-                        link.classList.add('active-link');
-                        link.classList.remove('text-gray-600', 'hover:lab-color');
-                    }
-                });
-
-            } catch (error) {
-                console.error("Error loading navigation:", error);
-            }
-        }
-
-        // Function to load news data
-        async function loadNews() {
-            const newsListDiv = document.getElementById('news-list');
-            try {
-                const response = await fetch('./news_data.json'); 
-                if (!response.ok) {
-                    if (response.status === 404) {
-                        throw new Error("File not found (404). Make sure 'news_data.json' exists in the same directory.");
-                    }
-                    throw new Error(`Failed to fetch news data: ${response.statusText}`);
-                }
-                const newsData = await response.json();
-                newsListDiv.innerHTML = newsData.map(item => `
-                    <div class="border-b pb-4">
-                        <span class="text-sm font-semibold ${item.color} block">${item.date}</span>
-                        <p class="text-lg font-medium text-gray-800 mt-1">
-                            <span class="lab-color font-bold mr-2">${item.title_tag}</span>
-                            ${item.content}
-                        </p>
-                        ${item.link && item.link_text ? 
-                            `<a href="${item.link}" target="_blank" class="text-blue-500 hover:underline text-sm block mt-1">${item.link_text}</a>` 
-                            : ''
-                        }
-                    </div>
-                `).join('');
-            } catch (error) {
-                console.error("Error loading news:", error);
-                newsListDiv.innerHTML = `<p class="text-red-600">Error: Could not load news updates. Please check the 'news_data.json' file.</p>`;
-            }
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            loadNavbar();
-            loadNews();
-        });
-    </script>
+    <!-- Link to the external JavaScript file -->
+    <script src="assets/js/main.js"></script>
 </body>
 </html>

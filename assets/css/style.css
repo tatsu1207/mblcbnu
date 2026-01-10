@@ -1,0 +1,92 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* Base Body Styles */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f7f7f7;
+    color: #1f2937; /* Equivalent to text-gray-800 */
+    line-height: 1.6;
+}
+
+/* Custom Lab Colors */
+.lab-color {
+    color: #0d47a1; /* Deep Blue */
+}
+
+.lab-bg {
+    background-color: #0d47a1;
+}
+
+/* Navigation Link Styles */
+.nav-link:hover {
+    color: #1e88e5; /* Lighter Blue for hover */
+}
+
+.active-link {
+    color: #1e88e5 !important; /* Active link color, use !important to override base color */
+    border-bottom: 2px solid #1e88e5;
+    padding-bottom: 0.25rem;
+}
+
+/* Custom Scrollbar for News Feed */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #0d47a150;
+    border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* YouTube Brand Color */
+.youtube-color {
+    color: #FF0000;
+}
+
+.youtube-bg {
+    background-color: #FF0000;
+}
+
+/* Publication Page Specific Styles */
+.pub-item {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-left: 4px solid #0d47a120;
+    transition: all 0.2s;
+}
+.pub-item:hover {
+    border-left-color: #0d47a1;
+    background-color: #f0f4f8; /* Light blue hover */
+}
+.pub-title {
+    color: #2563eb; /* Blue for the link text */
+    font-weight: 600;
+}
+.pub-journal {
+    font-style: italic;
+    font-weight: 500;
+    color: #0d47a1;
+}
+.pub-authors {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.875rem; /* sm */
+    color: #4b5563; /* Gray-600 */
+}
+
+/* People Page Specific Styles */
+.text-2xs {
+    font-size: 0.65rem;
+}
+
+/* Blog Page Specific Styles */
+.sidebar {
+    position: sticky;
+    top: 6rem; /* Adjust based on header height */
+    align-self: flex-start; /* Ensures it sticks to the top of its grid area */
+}

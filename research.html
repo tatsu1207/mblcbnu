@@ -6,29 +6,8 @@
     <title>Research | Microbiome Lab @ CBNU</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Use Inter font and set up custom styles -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7f7f7; /* Light neutral background */
-        }
-        /* Custom colors based on previous design */
-        .lab-color {
-            color: #0d47a1; /* Deep Blue */
-        }
-        .lab-bg {
-            background-color: #0d47a1;
-        }
-        .nav-link:hover {
-            color: #1e88e5; /* Lighter blue on hover */
-        }
-        .active-link {
-            color: #1e88e5; /* Active link color */
-            border-bottom: 2px solid #1e88e5;
-            padding-bottom: 0.25rem;
-        }
-    </style>
+    <!-- Link to the external stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="text-gray-800 leading-relaxed">
 
@@ -103,67 +82,14 @@ Establishment of a WGS Data Analysis Pipeline for Animal Antimicrobial Resistant
 
     </main>
 
-    <!-- Footer (Identical to index.html) -->
     <footer class="bg-gray-800 text-white py-6 mt-12">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
-            <p>&copy; 2025 Microbiome Lab. All rights reserved.</p>
+            <p>&copy; <span id="copyright-year">2025</span> Microbiome Lab. All rights reserved.</p>
         </div>
     </footer>
     
-    <!-- JavaScript for dynamic navigation loading -->
-    <script>
-        async function loadNavbar() {
-            const navContainer = document.getElementById('main-nav');
-            try {
-                // Fetch the navigation HTML from the separate file
-                const response = await fetch('./nav.html');
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP Error ${response.status}: Failed to fetch './nav.html'. Check if the file exists.`);
-                }
-                
-                const data = await response.text();
-                navContainer.innerHTML = data; // Inject the content
-
-                // After loading the content, set up the mobile menu toggle
-                const mobileMenuButton = navContainer.querySelector('#mobile-menu-button');
-                const mobileMenu = navContainer.querySelector('#mobile-menu');
-                
-                if (mobileMenuButton && mobileMenu) {
-                    mobileMenuButton.addEventListener('click', () => {
-                        mobileMenu.classList.toggle('hidden');
-                    });
-                }
-
-                // Set active link based on current page path
-                const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-                const links = navContainer.querySelectorAll('.nav-link');
-                
-                links.forEach(link => {
-                    // Normalize the link path (e.g., './research.html' -> 'research.html')
-                    const linkPath = link.getAttribute('href').split('/').pop() || 'index.html';
-                    if (linkPath === currentPath) {
-                        link.classList.add('active-link');
-                        link.classList.remove('text-gray-600', 'hover:lab-color');
-                    }
-                });
-
-            } catch (error) {
-                console.error("Error loading navigation. If you see a CORS error, run this using a local web server (e.g., Live Server).", error);
-                navContainer.innerHTML = `
-                    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center">
-                        <p class="text-red-500">Error loading navigation: ${error.message}</p>
-                    </div>
-                `;
-            }
-        }
-
-        // Use DOMContentLoaded to ensure the function runs safely once the page structure is available.
-        window.addEventListener('DOMContentLoaded', () => {
-            loadNavbar();
-            // No loadNews() needed here since this is research.html
-        });
-    </script>
+    <!-- Link to the external JavaScript file -->
+    <script src="assets/js/main.js"></script>
 
 </body>
 </html>

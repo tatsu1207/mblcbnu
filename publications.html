@@ -6,54 +6,8 @@
     <title>Publications | Microbiome Lab @ CBNU</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Use Inter font and set up custom styles -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7f7f7; /* Light neutral background */
-        }
-        /* Custom colors based on previous design */
-        .lab-color {
-            color: #0d47a1; /* Deep Blue */
-        }
-        .lab-bg {
-            background-color: #0d47a1;
-        }
-        .nav-link:hover {
-            color: #1e88e5; /* Lighter blue on hover */
-        }
-        .active-link {
-            color: #1e88e5; /* Active link color */
-            border-bottom: 2px solid #1e88e5;
-            padding-bottom: 0.25rem;
-        }
-        .pub-item {
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            border-left: 4px solid #0d47a120;
-            transition: all 0.2s;
-        }
-        .pub-item:hover {
-            border-left-color: #0d47a1;
-            background-color: #f0f4f8; /* Light blue hover */
-        }
-        .pub-title {
-            color: #2563eb; /* Blue for the link text */
-            font-weight: 600;
-        }
-        .pub-journal {
-            font-style: italic;
-            font-weight: 500;
-            color: #0d47a1;
-        }
-        .pub-authors {
-            display: block;
-            margin-top: 0.25rem;
-            font-size: 0.875rem; /* sm */
-            color: #4b5563; /* Gray-600 */
-        }
-    </style>
+    <!-- Link to the external stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="text-gray-800 leading-relaxed">
 
@@ -87,7 +41,7 @@
                         </a>, <span class="pub-journal">Agric. Environ. Sci.</span>
                         <span class="pub-authors">Tatsuya Unno*, Sojeong Kim, Jae-Hyeon Oh, Jun Heo, and Dong-Hun Lee*</span>
                         <!-- Added YouTube link here -->
-                        <a href="https://www.youtube.com/watch?v=-8msNNGxDis&list=PL_p508mG5izs0wHNNykW2TzqZ7ad2615P&index=2" target="_blank" class="inline-flex items-center mt-1 text-red-600 hover:text-red-800 font-semibold text-sm">
+                        <a href="https://www.youtube.com/@unnot1207/watch?v=-8msNNGxDis&list=PL_p508mG5izs0wHNNykW2TzqZ7ad2615P&index=2" target="_blank" class="inline-flex items-center mt-1 text-red-600 hover:text-red-800 font-semibold text-sm">
                             <svg class="w-4 h-4 mr-1 fill-current" viewBox="0 0 24 24">
                                 <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
                             </svg>
@@ -102,7 +56,7 @@
                         </a>, <span class="pub-journal">Applied Biological Chemistry</span>
                         <span class="pub-authors">Geon Choi, Hokyung Song and Tatsuya Unno*</span>
                         <!-- Added YouTube link here -->
-                        <a href="https://www.youtube.com/watch?v=70YcMt7jH-k&list=PL_p508mG5izs0wHNNykW2TzqZ7ad2615P&index=1" target="_blank" class="inline-flex items-center mt-1 text-red-600 hover:text-red-800 font-semibold text-sm">
+                        <a href="https://www.youtube.com/@unnot1207/watch?v=70YcMt7jH-k&list=PL_p508mG5izs0wHNNykW2TzqZ7ad2615P&index=1" target="_blank" class="inline-flex items-center mt-1 text-red-600 hover:text-red-800 font-semibold text-sm">
                             <svg class="w-4 h-4 mr-1 fill-current" viewBox="0 0 24 24">
                                 <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
                             </svg>
@@ -838,66 +792,14 @@
 
     </main>
 
-    <!-- Footer (Identical to other pages) -->
     <footer class="bg-gray-800 text-white py-6 mt-12">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
-            <p>&copy; 2025 Microbiome Lab. All rights reserved.</p>
+            <p>&copy; <span id="copyright-year">2025</span> Microbiome Lab. All rights reserved.</p>
         </div>
     </footer>
     
-    <!-- JavaScript for dynamic navigation loading -->
-    <script>
-        async function loadNavbar() {
-            const navContainer = document.getElementById('main-nav');
-            try {
-                // Fetch the navigation HTML from the separate file
-                const response = await fetch('./nav.html');
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP Error ${response.status}: Failed to fetch './nav.html'. Check if the file exists.`);
-                }
-                
-                const data = await response.text();
-                navContainer.innerHTML = data; // Inject the content
-
-                // After loading the content, set up the mobile menu toggle
-                const mobileMenuButton = navContainer.querySelector('#mobile-menu-button');
-                const mobileMenu = navContainer.querySelector('#mobile-menu');
-                
-                if (mobileMenuButton && mobileMenu) {
-                    mobileMenuButton.addEventListener('click', () => {
-                        mobileMenu.classList.toggle('hidden');
-                    });
-                }
-
-                // Set active link based on current page path
-                const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-                const links = navContainer.querySelectorAll('.nav-link');
-                
-                links.forEach(link => {
-                    // Normalize the link path (e.g., './publications.html' -> 'publications.html')
-                    const linkPath = link.getAttribute('href').split('/').pop() || 'index.html';
-                    if (linkPath === currentPath) {
-                        link.classList.add('active-link');
-                        link.classList.remove('text-gray-600', 'hover:lab-color');
-                    }
-                });
-
-            } catch (error) {
-                console.error("Error loading navigation. If you see a CORS error, run this using a local web server (e.g., Live Server).", error);
-                navContainer.innerHTML = `
-                    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center">
-                        <p class="text-red-500">Error loading navigation: ${error.message}</p>
-                    </div>
-                `;
-            }
-        }
-
-        // Use DOMContentLoaded to ensure the function runs safely once the page structure is available.
-        window.addEventListener('DOMContentLoaded', () => {
-            loadNavbar();
-        });
-    </script>
+    <!-- Link to the external JavaScript file -->
+    <script src="assets/js/main.js"></script>
 
 </body>
 </html>

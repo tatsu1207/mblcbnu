@@ -6,32 +6,8 @@
     <title>Blog | Microbiome Lab @ CBNU</title>
     <!-- Load Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Use Inter font and set up custom styles -->
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7f7f7; /* Light neutral background */
-        }
-        /* Custom colors based on previous design */
-        .lab-color {
-            color: #0d47a1; /* Deep Blue */
-        }
-        .nav-link:hover {
-            color: #1e88e5; /* Lighter blue on hover */
-        }
-        .active-link {
-            color: #1e88e5; /* Active link color */
-            border-bottom: 2px solid #1e88e5;
-            padding-bottom: 0.25rem;
-        }
-        .sidebar {
-            /* Make sidebar sticky on large screens */
-            position: sticky;
-            top: 6rem; /* Adjust based on header height */
-            align-self: flex-start; /* Ensures it sticks to the top of its grid area */
-        }
-    </style>
+    <!-- Link to the external stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="text-gray-800 leading-relaxed">
 
@@ -95,19 +71,14 @@
 
     </main>
 
-    <!-- Footer -->
     <footer class="bg-gray-800 text-white py-6 mt-12">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
-            <p>&copy; 2025 Microbiome Lab. All rights reserved.</p>
+            <p>&copy; <span id="copyright-year">2025</span> Microbiome Lab. All rights reserved.</p>
         </div>
     </footer>
     
-    <!-- JavaScript for dynamic content loading and navigation -->
+    <!-- Page-specific JavaScript for loading blog posts -->
     <script>
-        // Store initial classes for resetting (though they won't be modified anymore)
-        const INITIAL_GRID_CLASSES = 'grid grid-cols-1 lg:grid-cols-4 gap-10';
-        const INITIAL_SECTION_CLASSES = 'lg:col-span-3 space-y-6';
-
         // Function to dynamically load and display a blog post
         async function loadPost(event, url) {
             event.preventDefault(); // Stop the browser from navigating
@@ -133,86 +104,27 @@
                 // 3. Parse the fetched HTML to extract the main article content
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(htmlText, 'text/html');
-
-                // The article content was previously created inside a div with class 'blog-container'
                 const articleContent = doc.querySelector('.blog-container');
 
                 if (articleContent) {
-                    // 4. *** CRITICAL CHANGE: Layout structure is MAINTAINED (sidebar stays visible) ***
-                    // The grid and sidebar elements are NOT modified/hidden.
-                    
-                    // 5. Update main content section with the article HTML
-                    // We remove the outer padding/margin from the fetched content container 
-                    // and apply centering classes (max-w-4xl mx-auto) directly to the inner content
-                    // which centers it within the lg:col-span-3 area.
+                    // Update main content section with the article HTML
                     articleContent.classList.remove('blog-container', 'p-6', 'sm:p-10', 'md:p-12', 'rounded-xl');
                     articleContent.classList.add('max-w-4xl', 'mx-auto', 'w-full', 'p-8', 'bg-white', 'rounded-xl', 'shadow-lg'); 
-                    
-                    // Clear the loading state and insert the full post content
                     blogPostsSection.innerHTML = articleContent.outerHTML;
-                    
                 } else {
-                     blogPostsSection.innerHTML = `<div class="p-8 text-center bg-red-100 text-red-700 rounded-lg max-w-lg mx-auto">Error: Could not find the main article content container in the linked file (${url}).</div>`;
+                     blogPostsSection.innerHTML = `<div class="p-8 text-center bg-red-100 text-red-700 rounded-lg max-w-lg mx-auto">Error: Could not find the main article content in the linked file.</div>`;
                 }
                 
-                // 6. Scroll to top of the content area
                 window.scrollTo({ top: 0, behavior: 'smooth' });
 
             } catch (error) {
                 console.error("Post loading error:", error);
-                blogPostsSection.innerHTML = `<div class="p-8 text-center bg-red-100 text-red-700 rounded-lg max-w-lg mx-auto">Failed to load post content. Please check console for details.</div>`;
+                blogPostsSection.innerHTML = `<div class="p-8 text-center bg-red-100 text-red-700 rounded-lg max-w-lg mx-auto">Failed to load post content.</div>`;
             }
         }
-        
-        // Function to load the main navigation bar
-        async function loadNavbar() {
-            const navContainer = document.getElementById('main-nav');
-            try {
-                const response = await fetch('nav.html'); 
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP Error ${response.status}: Failed to fetch 'nav.html'.`);
-                }
-                
-                const data = await response.text();
-                navContainer.innerHTML = data; 
-
-                // Setup mobile menu toggle
-                const mobileMenuButton = navContainer.querySelector('#mobile-menu-button');
-                const mobileMenu = navContainer.querySelector('#mobile-menu');
-                
-                if (mobileMenuButton && mobileMenu) {
-                    mobileMenuButton.addEventListener('click', () => {
-                        mobileMenu.classList.toggle('hidden');
-                    });
-                }
-
-                // Set active link
-                const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-                const links = navContainer.querySelectorAll('.nav-link');
-                
-                links.forEach(link => {
-                    const linkPath = link.getAttribute('href').split('/').pop() || 'index.html';
-                    if (linkPath === currentPath) {
-                        link.classList.add('active-link');
-                        link.classList.remove('text-gray-600', 'hover:lab-color');
-                    }
-                });
-
-            } catch (error) {
-                console.error("Error loading navigation. If you see a CORS error, run this using a local web server (e.g., Live Server).", error);
-                navContainer.innerHTML = `
-                    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center">
-                        <p class="text-red-500">Error loading navigation: ${error.message}</p>
-                    </div>
-                `;
-            }
-        }
-
-        window.addEventListener('DOMContentLoaded', () => {
-            loadNavbar();
-        });
     </script>
+    <!-- Link to the external JavaScript file -->
+    <script src="assets/js/main.js"></script>
 
 </body>
 </html>
