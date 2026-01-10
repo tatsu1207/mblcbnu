@@ -34,36 +34,30 @@
                     <nav>
                         <ul class="space-y-3">
                             
-                            <!-- Link: Home coming day in Jeju -->
+                            <!-- Link 1: Duy Tan University -->
                             <li>
-                                <a href="./blogs/251116.html" onclick="loadPost(event, this.href)" 
-                                   class="blog-link block text-sm text-gray-700 hover:text-red-600 transition duration-150 ease-in-out p-2 rounded-lg hover:bg-gray-50">
-                                    <span class="font-medium text-red-600">Home coming day in Jeju:</span>
-                                    <span class="block text-xs text-gray-500">Nov 16, 2025</span>
+                                <a href="https://unnolab.wordpress.com/2024/11/14/visiting-duy-tan-university-24-11-06/" target="_blank" rel="noopener noreferrer"
+                                   class="blog-link block text-sm text-gray-700 hover:text-blue-600 transition duration-150 ease-in-out p-2 rounded-lg hover:bg-gray-50">
+                                    <span class="font-medium text-blue-600">Visiting Duy Tan University</span>
+                                    <span class="block text-xs text-gray-500">Nov 06, 2024</span>
                                 </a>
                             </li>
-                            <!-- Dummy Link: Summer Workshop -->
+
+                            <!-- Link 2: Prof. Sadowsky's Visit -->
                             <li>
-                                <a href="./blogs/251001.html" onclick="loadPost(event, this.href)" 
-                                   class="blog-link block text-sm text-gray-700 hover:text-red-600 transition duration-150 ease-in-out p-2 rounded-lg hover:bg-gray-50">
-                                    <span class="font-medium text-red-600">Summer Workshop: Bioinformatics</span>
-                                    <span class="block text-xs text-gray-500">Oct 01, 2025</span>
+                                <a href="https://unnolab.wordpress.com/2024/11/14/prof-sadowksys-visit/" target="_blank" rel="noopener noreferrer"
+                                   class="blog-link block text-sm text-gray-700 hover:text-blue-600 transition duration-150 ease-in-out p-2 rounded-lg hover:bg-gray-50">
+                                    <span class="font-medium text-blue-600">Prof. Sadowsky's Visit</span>
+                                    <span class="block text-xs text-gray-500">Nov 14, 2024</span>
                                 </a>
                             </li>
-                            <!-- Dummy Link: New Publication -->
+
+                            <!-- Link 3: MSK 2024 -->
                             <li>
-                                <a href="./blogs/250915.html" onclick="loadPost(event, this.href)" 
-                                   class="blog-link block text-sm text-gray-700 hover:text-red-600 transition duration-150 ease-in-out p-2 rounded-lg hover:bg-gray-50">
-                                    <span class="font-medium text-red-600">New Publication: Microbial Ecology</span>
-                                    <span class="block text-xs text-gray-500">Sep 15, 2025</span>
-                                </a>
-                            </li>
-                            <!-- Dummy Link: Lab Retreat -->
-                            <li>
-                                <a href="./blogs/250820.html" onclick="loadPost(event, this.href)" 
-                                   class="blog-link block text-sm text-gray-700 hover:text-red-600 transition duration-150 ease-in-out p-2 rounded-lg hover:bg-gray-50">
-                                    <span class="font-medium text-red-600">Lab Retreat: Team Building</span>
-                                    <span class="block text-xs text-gray-500">Aug 20, 2025</span>
+                                <a href="https://unnolab.wordpress.com/2024/11/14/msk-2024-at-jeju-icc-2024-10-30-11-01/" target="_blank" rel="noopener noreferrer"
+                                   class="blog-link block text-sm text-gray-700 hover:text-blue-600 transition duration-150 ease-in-out p-2 rounded-lg hover:bg-gray-50">
+                                    <span class="font-medium text-blue-600">MSK 2024 at Jeju ICC</span>
+                                    <span class="block text-xs text-gray-500">Oct 30, 2024</span>
                                 </a>
                             </li>
                             
@@ -74,7 +68,9 @@
 
             <!-- Main Blog Content Area (3/4 width on large screens) -->
             <section id="blog-posts" class="lg:col-span-3 space-y-6">
-                <!-- Blog post content will be loaded here dynamically -->
+                <p class="text-lg text-gray-600 mb-6">
+                    This space is dedicated to informal updates, scientific commentaries, and laboratory life. Please visit our external blog for full posts.
+                </p>
             </section>
         </div>
 
@@ -86,60 +82,8 @@
         </div>
     </footer>
     
-    <!-- Page-specific JavaScript for loading blog posts -->
-    <script>
-        // Function to dynamically load and display a blog post.
-        // The 'event' parameter is optional. If provided, its default action is prevented.
-        async function loadPost(event, url) {
-            if (event) {
-                event.preventDefault(); // Stop the browser from navigating if a link was clicked
-            }
-            
-            const blogPostsSection = document.getElementById('blog-posts');
-            
-            // Show a loading state
-            blogPostsSection.innerHTML = `
-                <div class="text-center py-20">
-                    <svg class="animate-spin h-8 w-8 text-blue-500 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
-                    <p class="mt-4 text-gray-500">Loading post content...</p>
-                </div>
-            `;
-
-            try {
-                const response = await fetch(url);
-                if (!response.ok) {
-                    throw new Error(`Failed to load post: ${response.statusText}`);
-                }
-                const htmlText = await response.text();
-
-                const parser = new DOMParser();
-                const doc = parser.parseFromString(htmlText, 'text/html');
-                const articleContent = doc.querySelector('.blog-container');
-
-                if (articleContent) {
-                    // Update main content section with the article HTML
-                    articleContent.classList.remove('blog-container', 'p-6', 'sm:p-10', 'md:p-12', 'rounded-xl');
-                    articleContent.classList.add('max-w-4xl', 'mx-auto', 'w-full', 'p-8', 'bg-white', 'rounded-xl', 'shadow-lg'); 
-                    blogPostsSection.innerHTML = articleContent.outerHTML;
-                } else {
-                     blogPostsSection.innerHTML = `<div class="p-8 text-center bg-red-100 text-red-700 rounded-lg max-w-lg mx-auto">Error: Could not find the main article content in the linked file.</div>`;
-                }
-                
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-
-            } catch (error) {
-                console.error("Post loading error:", error);
-                blogPostsSection.innerHTML = `<div class="p-8 text-center bg-red-100 text-red-700 rounded-lg max-w-lg mx-auto">Failed to load post content.</div>`;
-            }
-        }
-
-        // When the page loads, automatically load the most recent post.
-        window.addEventListener('DOMContentLoaded', () => {
-            // The URL of the post to load by default.
-            const initialPostUrl = './blogs/251116.html';
-            loadPost(null, initialPostUrl);
-        });
-    </script>
+    <!-- No page-specific JS needed anymore for auto-loading -->
+    
     <!-- Link to the external JavaScript file -->
     <script src="assets/js/main.js"></script>
 
