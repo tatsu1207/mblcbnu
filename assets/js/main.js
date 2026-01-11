@@ -98,6 +98,53 @@ function updateCopyrightYear() {
     }
 }
 
+/**
+ * Fetches visitor count and location to display in the footer.
+ * This will only run if the '#visitor-info' element is present.
+ * WARNING: This function uses third-party APIs (CounterAPI.com and ipapi.co). For production use, it is recommended to be mindful of rate limits.
+ */
+async function updateVisitorInfo() {
+    const visitorInfoDiv = document.getElementById('visitor-info');
+    if (!visitorInfoDiv) {
+        return; // Exit if the container isn't on the page
+    }
+
+    const counterSpan = document.getElementById('visitor-counter');
+    const locationSpan = document.getElementById('visitor-location');
+
+    // Fetch and display visitor count
+    try {
+        const response = await fetch('https://api.counterapi.dev/v1/mblcbnu-website/index/up');
+        const data = await response.json();
+        if (counterSpan) {
+            counterSpan.textContent = `Total Visitors: ${data.count}`;
+        }
+    } catch (error) {
+        console.error('Error fetching visitor count:', error);
+        if (counterSpan) {
+            counterSpan.textContent = 'Visitor count unavailable.';
+            alert('The visitor counter is currently unavailable. This may be due to an ad-blocker or a network issue. Please try disabling your ad-blocker or checking your network connection.');
+        }
+    }
+
+    // Fetch and display visitor location
+    try {
+        const response = await fetch('https://ipapi.co/json/');
+        const data = await response.json();
+        if (locationSpan && data.country_name) {
+            // Display a more friendly message
+            locationSpan.textContent = `Welcome, visitor from ${data.country_name}!`;
+        } else if (locationSpan) {
+            locationSpan.textContent = 'Location not detected.';
+        }
+    } catch (error) {
+        console.error('Error fetching visitor location:', error);
+        if (locationSpan) {
+            locationSpan.textContent = 'Location unavailable.';
+        }
+    }
+}
+
 
 /**
  * Main function to run when the DOM is fully loaded.
@@ -107,4 +154,5 @@ window.addEventListener('DOMContentLoaded', () => {
     loadNavbar();
     updateCopyrightYear();
     loadLatestBlogs();
+    updateVisitorInfo();
 });
