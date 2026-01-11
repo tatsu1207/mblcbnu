@@ -85,11 +85,14 @@ body {
 }
 
 /* Blog Page Specific Styles */
-.sidebar {
-    position: sticky;
-    top: 6rem; /* Adjust based on header height */
-    align-self: flex-start; /* Ensures it sticks to the top of its grid area */
+@media (min-width: 1024px) {
+    .sidebar {
+        position: sticky;
+        top: 6rem; /* Adjust based on header height */
+        align-self: flex-start; /* Ensures it sticks to the top of its grid area */
+    }
 }
+
 
 /* Mobile Menu Styles */
 #mobile-menu {
