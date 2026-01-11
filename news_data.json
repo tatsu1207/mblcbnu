@@ -1,16 +1,22 @@
 [
-  {
-    "date": "December 17, 2025",
-    "color": "text-blue-600",
-    "title_tag": "Lab Homepage renewal:",
-    "content": "Lab homepage is moved to github which is advertisement free!"
-  }, 
-  {
-    "date": "November 16, 2025",
-    "color": "text-red-600",
-    "title_tag": "Home coming day in Jeju:",
-    "content": "Allumni and current lab members gathered in Jeju. We also pariticipated in Marathon and had small symposium later on.",
-    "link": "./blog.html",
-    "link_text": "Click here for details"
-  } 
+    {
+        "title": "Home coming day in Jeju:",
+        "date": "Nov 16, 2025",
+        "url": "./blogs/251116.html"
+    },
+    {
+        "title": "CBNU and Duy Tan University MOU",
+        "date": "Nov 06, 2024",
+        "url": "./blogs/241106.html"
+    },
+    {
+        "title": "MSK 2024 at Jeju ICC",
+        "date": "Oct 30, 2024",
+        "url": "./blogs/241030.html"
+    },
+    {
+        "title": "Prof. Michael Sadowsky's Visit",
+        "date": "Oct 29, 2024",
+        "url": "./blogs/241029.html"
+    }
 ]

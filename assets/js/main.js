@@ -51,7 +51,7 @@ function setActiveNavLink(navContainer) {
 }
 
 /**
- * Fetches the latest 3 blog posts from blog.html and displays them.
+ * Fetches the latest 3 blog posts from news_data.json and displays them.
  * This function will only run if the '#news-list' element is present.
  */
 async function loadLatestBlogs() {
@@ -61,24 +61,12 @@ async function loadLatestBlogs() {
     }
 
     try {
-        const response = await fetch('blog.html');
+        const response = await fetch('news_data.json');
         if (!response.ok) {
-            throw new Error(`Failed to fetch blog.html: ${response.statusText}`);
+            throw new Error(`Failed to fetch news_data.json: ${response.statusText}`);
         }
-        const htmlText = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(htmlText, 'text/html');
+        const posts = await response.json();
         
-        const blogLinks = doc.querySelectorAll('#sidebar .blog-link');
-        const posts = [];
-
-        blogLinks.forEach(link => {
-            const title = link.querySelector('span.font-medium').textContent;
-            const date = link.querySelector('span.text-xs').textContent;
-            const url = link.getAttribute('href');
-            posts.push({ title, date, url });
-        });
-
         const latestThree = posts.slice(0, 3);
 
         if (latestThree.length > 0) {
@@ -113,6 +101,7 @@ function updateCopyrightYear() {
 /**
  * Fetches visitor count and location to display in the footer.
  * This will only run if the '#visitor-info' element is present.
+ * WARNING: This function uses third-party APIs. For production use, it is recommended to use a more secure method for handling API keys and to be mindful of rate limits.
  */
 async function updateVisitorInfo() {
     const visitorInfoDiv = document.getElementById('visitor-info');
@@ -164,11 +153,6 @@ async function updateVisitorInfo() {
 window.addEventListener('DOMContentLoaded', () => {
     loadNavbar();
     updateCopyrightYear();
-
-    // Check if we are on the homepage to load the blog posts
-    const isIndexPage = window.location.pathname.endsWith('/') || window.location.pathname.endsWith('index.html');
-    if (isIndexPage) {
-        loadLatestBlogs();
-        updateVisitorInfo();
-    }
+    loadLatestBlogs();
+    updateVisitorInfo();
 });
