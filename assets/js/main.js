@@ -86,10 +86,10 @@ async function loadLatestBlogs() {
         }
         const posts = await response.json();
         
-        const latestThree = posts.slice(0, 3);
+        const allPosts = posts;
 
-        if (latestThree.length > 0) {
-            newsListDiv.innerHTML = latestThree.map(post => `
+        if (allPosts.length > 0) {
+            newsListDiv.innerHTML = allPosts.map(post => `
                 <div class="border-b pb-4">
                     <span class="text-sm font-semibold text-gray-500 block">${post.date}</span>
                     <p class="text-lg font-medium text-gray-800 mt-1">
