@@ -101,7 +101,7 @@ function updateCopyrightYear() {
 /**
  * Fetches visitor count and location to display in the footer.
  * This will only run if the '#visitor-info' element is present.
- * WARNING: This function uses third-party APIs. For production use, it is recommended to use a more secure method for handling API keys and to be mindful of rate limits.
+ * WARNING: This function uses third-party APIs (CounterAPI.com and ipapi.co). For production use, it is recommended to be mindful of rate limits.
  */
 async function updateVisitorInfo() {
     const visitorInfoDiv = document.getElementById('visitor-info');
@@ -114,11 +114,10 @@ async function updateVisitorInfo() {
 
     // Fetch and display visitor count
     try {
-        // We use a unique namespace for your site to ensure the count is specific.
-        const response = await fetch('https://api.countapi.xyz/hit/mblcbnu-website/index');
+        const response = await fetch('https://api.counterapi.dev/v1/mblcbnu-website/index/up');
         const data = await response.json();
         if (counterSpan) {
-            counterSpan.textContent = `Total Visitors: ${data.value}`;
+            counterSpan.textContent = `Total Visitors: ${data.count}`;
         }
     } catch (error) {
         console.error('Error fetching visitor count:', error);
