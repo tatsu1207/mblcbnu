@@ -90,3 +90,8 @@ body {
     top: 6rem; /* Adjust based on header height */
     align-self: flex-start; /* Ensures it sticks to the top of its grid area */
 }
+
+/* Mobile Menu Styles */
+#mobile-menu {
+    background-color: #111827; /* bg-gray-900 */
+}

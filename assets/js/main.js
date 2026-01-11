@@ -1,6 +1,7 @@
+
 /**
  * Fetches and injects the navigation bar into the header.
- * It also highlights the active link based on the current page.
+ * It also highlights the active link and sets up the mobile menu toggle.
  */
 async function loadNavbar() {
     const navContainer = document.getElementById('main-nav');
@@ -21,9 +22,26 @@ async function loadNavbar() {
         // Highlight the active navigation link
         setActiveNavLink(navContainer);
 
+        // Setup mobile menu toggle
+        setupMobileMenu();
+
     } catch (error) {
         console.error("Error loading navigation:", error);
         navContainer.innerHTML = `<p class="text-red-500 text-center p-4">Error: Could not load navigation.</p>`;
+    }
+}
+
+/**
+ * Sets up the event listener for the mobile menu button.
+ */
+function setupMobileMenu() {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (mobileMenuButton && mobileMenu) {
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
     }
 }
 
@@ -49,6 +67,7 @@ function setActiveNavLink(navContainer) {
         }
     });
 }
+
 
 /**
  * Fetches the latest 3 blog posts from news_data.json and displays them.

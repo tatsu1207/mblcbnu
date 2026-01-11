@@ -6,6 +6,15 @@
                 <span class="text-2xl font-extrabold text-gray-800">Microbiome Lab</span>
             </a>
         </div>
+        <!-- Hamburger Menu Button (visible on mobile) -->
+        <div class="md:hidden">
+            <button id="mobile-menu-button" class="text-gray-800 hover:text-gray-600 focus:outline-none">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+        <!-- Desktop Navigation (hidden on mobile) -->
         <nav class="hidden md:flex space-x-6 text-base font-medium">
             <a href="./index.html" class="nav-link lab-color transition duration-150 ease-in-out">Home</a>
             <a href="./research.html" class="nav-link text-gray-600 hover:lab-color transition duration-150 ease-in-out">Research</a>
@@ -15,4 +24,15 @@
             <a href="./lecture.html" class="nav-link text-gray-600 hover:lab-color transition duration-150 ease-in-out">Lecture</a>
         </nav>
     </div>
+</div>
+<!-- Mobile Navigation Menu (hidden by default) -->
+<div id="mobile-menu" class="md:hidden hidden">
+    <nav class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <a href="./index.html" class="block px-3 py-2 rounded-md text-base font-medium text-white bg-gray-900">Home</a>
+        <a href="./research.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Research</a>
+        <a href="./people.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">People</a>
+        <a href="./publications.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Publications</a>
+        <a href="./blog.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Blog</a>
+        <a href="./lecture.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:text-white hover:bg-gray-700">Lecture</a>
+    </nav>
 </div>
