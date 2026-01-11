@@ -104,9 +104,12 @@ function updateCopyrightYear() {
  * WARNING: This function uses third-party APIs (CounterAPI.com and ipapi.co). For production use, it is recommended to be mindful of rate limits.
  */
 async function updateVisitorInfo() {
+    console.log("updateVisitorInfo function started.");
+
     const visitorInfoDiv = document.getElementById('visitor-info');
     if (!visitorInfoDiv) {
-        return; // Exit if the container isn't on the page
+        console.log("Visitor info div not found. Exiting function.");
+        return;
     }
 
     const counterSpan = document.getElementById('visitor-counter');
@@ -114,8 +117,10 @@ async function updateVisitorInfo() {
 
     // Fetch and display visitor count
     try {
+        console.log("Fetching visitor count...");
         const response = await fetch('https://api.counterapi.dev/v1/mblcbnu-website/index/up');
         const data = await response.json();
+        console.log("Visitor count data received:", data);
         if (counterSpan) {
             counterSpan.textContent = `Total Visitors: ${data.count}`;
         }
@@ -123,14 +128,15 @@ async function updateVisitorInfo() {
         console.error('Error fetching visitor count:', error);
         if (counterSpan) {
             counterSpan.textContent = 'Visitor count unavailable.';
-            alert('The visitor counter is currently unavailable. This may be due to an ad-blocker or a network issue. Please try disabling your ad-blocker or checking your network connection.');
         }
     }
 
     // Fetch and display visitor location
     try {
+        console.log("Fetching visitor location...");
         const response = await fetch('https://ipapi.co/json/');
         const data = await response.json();
+        console.log("Visitor location data received:", data);
         if (locationSpan && data.country_name) {
             // Display a more friendly message
             locationSpan.textContent = `Welcome, visitor from ${data.country_name}!`;
