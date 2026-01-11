@@ -1,2 +1,11 @@
 # JetBrains IDEs
 .idea/
+
+# Log files
+*.log
+
+# Swap files
+*.swo
+
+# macOS
+.DS_Store

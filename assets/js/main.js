@@ -123,6 +123,7 @@ async function updateVisitorInfo() {
         console.error('Error fetching visitor count:', error);
         if (counterSpan) {
             counterSpan.textContent = 'Visitor count unavailable.';
+            alert('The visitor counter is currently unavailable. This may be due to an ad-blocker or a network issue. Please try disabling your ad-blocker or checking your network connection.');
         }
     }
 
