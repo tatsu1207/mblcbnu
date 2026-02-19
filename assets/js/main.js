@@ -93,7 +93,7 @@ async function loadLatestBlogs() {
                 <div class="border-b pb-4">
                     <span class="text-sm font-semibold text-gray-500 block">${post.date}</span>
                     <p class="text-lg font-medium text-gray-800 mt-1">
-                        <a href="${post.url}" class="lab-color font-bold hover:underline">${post.title}</a>
+                        <a href="blog.html?post=${encodeURIComponent(post.url)}" class="lab-color font-bold hover:underline">${post.title}</a>
                     </p>
                 </div>
             `).join('');
