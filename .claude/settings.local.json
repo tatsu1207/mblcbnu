@@ -2,7 +2,20 @@
   "permissions": {
     "allow": [
       "Bash(git:*)",
-      "WebFetch(domain:www.frontiersin.org)"
+      "WebFetch(domain:www.frontiersin.org)",
+      "Bash(cat)",
+      "Bash(bash /tmp/lookup_if.sh)",
+      "Bash(awk -F'\\\\t' '$4 ~ /[Ss]cience.*[Tt]otal/ || $4 ~ /TOTAL.*ENVIRON/i {print $4\"\\\\t\"$7\"\\\\t\"$8}' /Users/unnot/Desktop/github/mblcbnu/if.tsv)",
+      "Bash(awk -F'\\\\t' 'BEGIN{IGNORECASE=1} $4 ~ /SCIENCE.*TOTAL/ {print $4\"\\\\t\"$7\"\\\\t\"$8}' /Users/unnot/Desktop/github/mblcbnu/if.tsv)",
+      "Bash(awk -F'\\\\t' 'toupper\\($4\\) ~ /SCIENCE OF THE TOTAL/ {print $4\"\\\\t\"$7\"\\\\t\"$8}' /Users/unnot/Desktop/github/mblcbnu/if.tsv)",
+      "Bash(awk -F'\\\\t' 'toupper\\($4\\) ~ /AGRIC.*ENVIRON.*SCI/ {print $4\"\\\\t\"$7\"\\\\t\"$8}' /Users/unnot/Desktop/github/mblcbnu/if.tsv)",
+      "Bash(awk -F'\\\\t' 'toupper\\($4\\) ~ /BIOACTIVE/ {print $4\"\\\\t\"$7\"\\\\t\"$8}' /Users/unnot/Desktop/github/mblcbnu/if.tsv)",
+      "Bash(awk -F'\\\\t' 'toupper\\($4\\) ~ /CARBOHYDRATES/ {print $4\"\\\\t\"$7\"\\\\t\"$8}' /Users/unnot/Desktop/github/mblcbnu/if.tsv)",
+      "Bash(awk -F'\\\\t' 'toupper\\($4\\) ~ /TOTAL ENVIRON/ {print $4\"\\\\t\"$7\"\\\\t\"$8}' /Users/unnot/Desktop/github/mblcbnu/if.tsv)",
+      "Bash(awk -F'\\\\t' 'toupper\\($4\\) ~ /TOTAL/ && toupper\\($4\\) ~ /ENVIRON/ {print $4\"\\\\t\"$7\"\\\\t\"$8}' /Users/unnot/Desktop/github/mblcbnu/if.tsv)",
+      "Bash(awk -F'\\\\t' 'toupper\\($4\\) ~ /SCI.*TOTAL/ || toupper\\($4\\) ~ /TOTAL ENV/ {print NR\": \"$4\"\\\\t\"$7\"\\\\t\"$8}' /Users/unnot/Desktop/github/mblcbnu/if.tsv)",
+      "Bash(awk -F'\\\\t' '{print $4}' /Users/unnot/Desktop/github/mblcbnu/if.tsv)",
+      "Bash(python3 /tmp/apply_if.py)"
     ]
   }
 }
