@@ -1,0 +1,30 @@
+<div class="blog-container p-6 sm:p-10 md:p-12 rounded-xl">
+    <h2 class="text-3xl font-bold lab-color mb-4">New Publication: 16S-Pipeline in Journal of Microbiology</h2>
+    <p class="text-sm text-gray-500 mb-6">Published on May 14, 2026</p>
+    <div class="prose max-w-none text-gray-700 leading-relaxed">
+        <p>We are pleased to announce that our protocol paper, <strong>"16S-Pipeline: A comprehensive web-based platform for end-to-end 16S rRNA amplicon sequencing analysis,"</strong> has been published in the <em>Journal of Microbiology</em> (IF 2.6; JCR 60.4%).</p>
+
+        <p>16S-Pipeline is an open-source, web-based platform that delivers a complete workflow from raw FASTQ files to publication-ready statistical analyses. The pipeline automatically detects sequencing type (paired-end, single-end, long-read), variable region, and sequencing platform (Illumina, PacBio HiFi, Nanopore), then performs:</p>
+        <ul class="list-disc list-inside space-y-1 my-4">
+            <li>Quality filtering and primer trimming</li>
+            <li>ASV inference via DADA2</li>
+            <li>Taxonomy assignment against SILVA v138.1</li>
+            <li>Phylogenetic tree construction</li>
+            <li>Optional functional prediction via PICRUSt2</li>
+        </ul>
+        <p>Downstream analyses include alpha and beta diversity, taxonomic composition visualization, and differential abundance testing using five complementary methods (ALDEx2, DESeq2, ANCOM-BC2, LinDA, MaAsLin2) with consensus reporting, as well as KEGG pathway mapping. Built-in NCBI SRA integration enables downloading public datasets for re-analysis and generates submission metadata spreadsheets for data deposition.</p>
+
+        <p>The interactive web interface is built on FastAPI and Plotly Dash, enabling researchers to perform complex microbiome analyses without command-line expertise.</p>
+
+        <p>16S-Pipeline is freely available at <a href="https://github.com/tatsu1207/16S-Pipeline" target="_blank" class="text-blue-600 hover:underline">github.com/tatsu1207/16S-Pipeline</a> under the MIT License.</p>
+
+        <p class="mt-6">
+            <a href="https://jmicrobiol.or.kr/journal/view.php?doi=10.71150/jm.2603014" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-bold rounded-full hover:bg-blue-700 transition-colors shadow-md mr-2">
+                Read on Journal Site
+            </a>
+            <a href="./jm-2603014.pdf" target="_blank" class="inline-flex items-center px-4 py-2 bg-gray-700 text-white text-sm font-bold rounded-full hover:bg-gray-800 transition-colors shadow-md">
+                Download PDF
+            </a>
+        </p>
+    </div>
+</div>

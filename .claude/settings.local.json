@@ -15,7 +15,8 @@
       "Bash(awk -F'\\\\t' 'toupper\\($4\\) ~ /TOTAL/ && toupper\\($4\\) ~ /ENVIRON/ {print $4\"\\\\t\"$7\"\\\\t\"$8}' /Users/unnot/Desktop/github/mblcbnu/if.tsv)",
       "Bash(awk -F'\\\\t' 'toupper\\($4\\) ~ /SCI.*TOTAL/ || toupper\\($4\\) ~ /TOTAL ENV/ {print NR\": \"$4\"\\\\t\"$7\"\\\\t\"$8}' /Users/unnot/Desktop/github/mblcbnu/if.tsv)",
       "Bash(awk -F'\\\\t' '{print $4}' /Users/unnot/Desktop/github/mblcbnu/if.tsv)",
-      "Bash(python3 /tmp/apply_if.py)"
+      "Bash(python3 /tmp/apply_if.py)",
+      "Bash(awk *)"
     ]
   }
 }
