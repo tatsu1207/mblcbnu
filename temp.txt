@@ -1,0 +1,39 @@
+I have a YouTube video link to add to two files in the /Users/unnot/Desktop/github/mblcbnu/ repository (my lab homepage). The video URL is https://youtu.be/468s4ggn98o and it's for the paper "16S-Pipeline: A comprehensive web-based platform for end-to-end 16S rRNA amplicon sequencing analysis."
+
+==============================================================
+EDIT 1: blogs/260514_pub_16s_pipeline.html
+==============================================================
+
+Find the closing button group `<p class="mt-6">` near the bottom of the file. It currently contains just two buttons ("Read on Journal Site" and "Download PDF"). Replace that entire `<p>` block with the version below — it adds `mb-2` to the existing buttons (so they wrap nicely on narrow screens) and appends a red YouTube "Watch Video" button:
+
+<p class="mt-6">
+    <a href="https://jmicrobiol.or.kr/journal/view.php?doi=10.71150/jm.2603014" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-bold rounded-full hover:bg-blue-700 transition-colors shadow-md mr-2 mb-2">
+        Read on Journal Site
+    </a>
+    <a href="./jm-2603014.pdf" target="_blank" class="inline-flex items-center px-4 py-2 bg-gray-700 text-white text-sm font-bold rounded-full hover:bg-gray-800 transition-colors shadow-md mr-2 mb-2">
+        Download PDF
+    </a>
+    <a href="https://youtu.be/468s4ggn98o" target="_blank" class="inline-flex items-center px-4 py-2 bg-red-600 text-white text-sm font-bold rounded-full hover:bg-red-700 transition-colors shadow-md mb-2">
+        <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24">
+            <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+        </svg>
+        Watch Video
+    </a>
+</p>
+
+==============================================================
+EDIT 2: publications.html
+==============================================================
+
+Find the very first `<div class="pub-item">` under the `2026` `<h2>` heading — its title is "16S-Pipeline: A comprehensive web-based platform for end-to-end 16S rRNA amplicon sequencing analysis" and it currently has only a "PDF" link (blue text) after the author line. Right after that PDF `<a>...</a>` block (still inside the same `<p class="text-gray-800">`), insert this YouTube link so it matches the style used by the other 2026 publication entries:
+
+                        <a href="https://youtu.be/468s4ggn98o" target="_blank" class="inline-flex items-center mt-1 text-red-600 hover:text-red-800 font-semibold text-sm">
+                            <svg class="w-4 h-4 mr-1 fill-current" viewBox="0 0 24 24">
+                                <path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/>
+                            </svg>
+                            Watch Video
+                        </a>
+
+==============================================================
+
+Don't change anything else. Just confirm both edits when done.
