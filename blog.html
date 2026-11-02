@@ -122,7 +122,8 @@
             if (newsList) {
                 newsList.addEventListener('click', (e) => {
                     const link = e.target.closest('a');
-                    if (link) {
+                    // External posts open in a new tab, so leave those clicks alone.
+                    if (link && link.target !== '_blank') {
                         e.preventDefault();
                         try {
                             const url = new URL(link.href);

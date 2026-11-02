@@ -89,14 +89,21 @@ async function loadLatestBlogs() {
         const allPosts = posts;
 
         if (allPosts.length > 0) {
-            newsListDiv.innerHTML = allPosts.map(post => `
+            newsListDiv.innerHTML = allPosts.map(post => {
+                // External URLs can't be fetched into blog.html, so link to them directly.
+                const isExternal = /^https?:\/\//.test(post.url);
+                const linkAttrs = isExternal
+                    ? `href="${post.url}" target="_blank" rel="noopener"`
+                    : `href="blog.html?post=${encodeURIComponent(post.url)}"`;
+                return `
                 <div class="border-b pb-4">
                     <span class="text-sm font-semibold text-gray-500 block">${post.date}</span>
                     <p class="text-lg font-medium text-gray-800 mt-1">
-                        <a href="blog.html?post=${encodeURIComponent(post.url)}" class="lab-color font-bold hover:underline">${post.title}</a>
+                        <a ${linkAttrs} class="lab-color font-bold hover:underline">${post.title}</a>
                     </p>
                 </div>
-            `).join('');
+            `;
+            }).join('');
         } else {
             newsListDiv.innerHTML = `<p class="text-gray-500 italic">No recent blog posts found.</p>`;
         }
