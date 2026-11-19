@@ -59,6 +59,18 @@ body {
     border-left: 4px solid #0d47a120;
     transition: all 0.2s;
 }
+/* Number publications within each year, restarting at 1 */
+#publication-list > div {
+    counter-reset: pub;
+}
+#publication-list .pub-item {
+    counter-increment: pub;
+}
+#publication-list .pub-item > p::before {
+    content: counter(pub) ". ";
+    font-weight: 700;
+    color: #0d47a1;
+}
 .pub-item:hover {
     border-left-color: #0d47a1;
     background-color: #f0f4f8; /* Light blue hover */
