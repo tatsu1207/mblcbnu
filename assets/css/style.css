@@ -110,3 +110,7 @@ body {
 #mobile-menu {
     background-color: #111827; /* bg-gray-900 */
 }
+/* Keep year headings clear of the sticky nav bar when jumped to */
+#publication-list h2[id] {
+    scroll-margin-top: 5rem;
+}
